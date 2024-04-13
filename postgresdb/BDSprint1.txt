@@ -1,0 +1,36 @@
+CREATE TABLE Avaliação (
+  idAvaliação INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  Usuario_idUsuario INTEGER UNSIGNED NOT NULL,
+  idUsuario INTEGER UNSIGNED NULL,
+  Data_Avaliação DATE NULL,
+  Score NUMERIC NULL,
+  PRIMARY KEY(idAvaliação),
+  INDEX Avaliação_FKIndex1(Usuario_idUsuario)
+);
+
+CREATE TABLE Questões (
+  idQuestões INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  Enunciado VARCHAR(300) NULL,
+  Alternativa_Correta VARCHAR(10) NULL,
+  Alternativa_A VARCHAR(10) NULL,
+  Alternativa_B VARCHAR(10) NULL,
+  PRIMARY KEY(idQuestões)
+);
+
+CREATE TABLE Questões_has_Avaliação (
+  Questões_idQuestões INTEGER UNSIGNED NOT NULL,
+  Avaliação_idAvaliação INTEGER UNSIGNED NOT NULL,
+  PRIMARY KEY(Questões_idQuestões, Avaliação_idAvaliação),
+  INDEX Questões_has_Avaliação_FKIndex1(Questões_idQuestões),
+  INDEX Questões_has_Avaliação_FKIndex2(Avaliação_idAvaliação)
+);
+
+CREATE TABLE Usuario (
+  idUsuario INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  Nome VARCHAR(50) NULL,
+  Email VARCHAR(50) NULL,
+  Data_Cadastro DATE NULL,
+  PRIMARY KEY(idUsuario)
+);
+
+
