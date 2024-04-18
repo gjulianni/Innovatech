@@ -1,28 +1,26 @@
-CREATE TABLE AvaliaÁ„o (
-  idAvaliaÁ„o INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE Avalia√ß√£o (
+  idAvalia√ß√£o INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
   Usuario_idUsuario INTEGER UNSIGNED NOT NULL,
   idUsuario INTEGER UNSIGNED NULL,
-  Data_AvaliaÁ„o DATE NULL,
+  Data_Avalia√ß√£o DATE NULL,
   Score NUMERIC NULL,
-  PRIMARY KEY(idAvaliaÁ„o),
-  INDEX AvaliaÁ„o_FKIndex1(Usuario_idUsuario)
+  PRIMARY KEY(idAvalia√ß√£o),
+  INDEX Avalia√ß√£o_FKIndex1(Usuario_idUsuario)
 );
 
-CREATE TABLE Questıes (
-  idQuestıes INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-  Enunciado VARCHAR(300) NULL,
-  Alternativa_Correta VARCHAR(10) NULL,
-  Alternativa_A VARCHAR(10) NULL,
-  Alternativa_B VARCHAR(10) NULL,
-  PRIMARY KEY(idQuestıes)
+CREATE TABLE Avalia√ß√£o_has_Quest√µes (
+  Avalia√ß√£o_idAvalia√ß√£o INTEGER UNSIGNED NOT NULL,
+  Quest√µes_idAvalia√ß√£o INTEGER UNSIGNED NOT NULL,
+  PRIMARY KEY(Avalia√ß√£o_idAvalia√ß√£o, Quest√µes_idAvalia√ß√£o),
+  INDEX Avalia√ß√£o_has_Quest√µes_FKIndex1(Avalia√ß√£o_idAvalia√ß√£o),
+  INDEX Avalia√ß√£o_has_Quest√µes_FKIndex2(Quest√µes_idAvalia√ß√£o)
 );
 
-CREATE TABLE Questıes_has_AvaliaÁ„o (
-  Questıes_idQuestıes INTEGER UNSIGNED NOT NULL,
-  AvaliaÁ„o_idAvaliaÁ„o INTEGER UNSIGNED NOT NULL,
-  PRIMARY KEY(Questıes_idQuestıes, AvaliaÁ„o_idAvaliaÁ„o),
-  INDEX Questıes_has_AvaliaÁ„o_FKIndex1(Questıes_idQuestıes),
-  INDEX Questıes_has_AvaliaÁ„o_FKIndex2(AvaliaÁ„o_idAvaliaÁ„o)
+CREATE TABLE Quest√µes (
+  idAvalia√ß√£o INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  Enunciado INTEGER UNSIGNED NULL,
+  AlternativaCorreta CHAR(10) NULL,
+  PRIMARY KEY(idAvalia√ß√£o)
 );
 
 CREATE TABLE Usuario (
@@ -32,5 +30,4 @@ CREATE TABLE Usuario (
   Data_Cadastro DATE NULL,
   PRIMARY KEY(idUsuario)
 );
-
 
