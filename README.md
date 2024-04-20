@@ -9,3 +9,5 @@ semestre de DSM.</h1>
 <p align="center">
 <a href="https://trello.com/b/Zq9DXif1/abp-s1-plataforma-scrum">Trello</a> | <a href="https://www.figma.com/file/3XwwS8l4t1NWeAINtgRX2n/Untitled?type=design&node-id=0%3A1&mode=design&t=k4hpImu9r1hWivGf-1">Figma</a> | <a href="https://github.com/orgs/InovatechLabs/projects/2" target="_blank">Backlog</a> | <a href="https://ibb.co/VjpQKgC" target="_blank">Burndown</a>
 </p>
+
+<p>OBS: Para visualizar o Backlog, esteja logado no GitHub!</p>
