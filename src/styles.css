@@ -5,6 +5,8 @@ body {
     margin: 0;
 }
 
+
+
 /* CSS Card de Login */
 
 .login-card {
@@ -29,13 +31,16 @@ body {
 .main-login { /* Div que está o card de login */
 
     width: 40vw;
-    height: 90vh;
+    height: 75vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     left: 50%;
+    
 }
+
+
 
 .textfield {
 
@@ -98,5 +103,28 @@ p { /* (Não possui uma conta? Cadastre-se) */
 p a { /* Link do Cadastre-se, altera a cor para um azul mais vivo */
 
     color: #0CA0F3;
+    font-weight: 500;
+}
+
+h2 {
+
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 350;
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 4vw;
+    margin-top: 20px;
+}
+
+h3 {
+
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 350;
+    margin-bottom: 0px;
+    font-size: 2vw;
+    text-align: center;
+    margin-top: 1;
 }
 
