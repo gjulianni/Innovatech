@@ -1,0 +1,124 @@
+/* Remove a margem padrão da página */
+
+body {
+
+    margin: 0;
+}
+
+
+
+/* CSS Card de Cadastro */
+
+
+.titulo {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    margin-top: -90px;
+    
+}
+
+.left {
+
+    order: 2;
+}
+
+.right {
+
+    order: 3;
+}
+
+.cadastro-img-innova {
+
+    order: 1;
+}
+.cadastro-card {
+
+    width:65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background: #fff;
+    border-radius: 25px;
+    box-shadow: 0px 10px 40px;
+    height: 80%;
+}
+
+
+
+.main-cadastro { /* Div que está o card de cadastro */
+
+    width: 40vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    padding-right: 210px;
+    
+}
+
+
+
+
+
+.textfield {
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 180px 0px;
+    width: 20vw;
+}
+
+
+.textfield > input {
+
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    background: #d9d9d9;
+    outline: none;
+    box-sizing: border-box;
+    
+}
+
+.textfield > input:first-child {
+
+    margin-bottom: 20px;
+}
+
+.textfield > label {
+
+    color: #616161;
+    margin-bottom: 10px;
+}
+
+.btn-cadastrar { /* Botão de Login */
+
+    width: 50%;
+    padding: 12px 0px;
+    margin: 25px;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    font-weight: 700;
+    background: #0CA0F3;
+    cursor: pointer;
+    color: #fff;
+    font-size: large;
+
+}
+
+.btn-cadastrar:hover { /* Para quando passar o mouse a cor do botão se alterar */
+
+    background-color: #0e85ca;
+}
