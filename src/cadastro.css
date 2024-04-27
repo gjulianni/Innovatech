@@ -22,20 +22,8 @@ body {
     
 }
 
-.left {
 
-    order: 2;
-}
 
-.right {
-
-    order: 3;
-}
-
-.cadastro-img-innova {
-
-    order: 1;
-}
 .cadastro-card {
 
     width:65%;
@@ -45,9 +33,11 @@ body {
     flex-direction: column;
     padding: 30px 35px;
     background: #fff;
-    border-radius: 25px;
+    border-radius: 20px;
+    border-top: 8px solid #0CA0F3;
     box-shadow: 0px 10px 40px;
     height: 80%;
+    position: relative;
 }
 
 
@@ -60,13 +50,66 @@ body {
     align-items: center;
     justify-content: center;
     float: right;
-    padding-right: 210px;
+    padding-right: 180px;
     
 }
 
+.banner-innova {
+
+    position: absolute;
+    left: 0;
+    margin-left: 265px;
+}
+
+.card-top {
+
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid #807b7b;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    background-color: #e4e3e3;
+    border-radius: 20px 20px 0 0;
+}
+
+.card-top > h1 {
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    margin-top: 17px;
+    
+}
+
+.cadastro-img-innova {
+
+    margin-right: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    margin-left: 10px;
+}
 
 
+.cadastro-img {
 
+    position: absolute;
+    right: 0;
+    margin-right: 130px;
+    margin-top: 8px;
+}
+
+.card-top > h2 {
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    font-size: 30px;
+    position: absolute;
+    right: 0;
+    margin-top: 17px;
+    margin-right: 10px;
+}
 
 .textfield {
 
@@ -75,7 +118,7 @@ body {
     align-items: flex-start;
     justify-content: center;
     margin: 180px 0px;
-    width: 20vw;
+    width: 25vw;
 }
 
 
@@ -83,30 +126,35 @@ body {
 
     width: 100%;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 15px;
     background: #d9d9d9;
     outline: none;
     box-sizing: border-box;
+    font-size: 1vw;
     
 }
 
-.textfield > input:first-child {
+.textfield .first-input {
 
-    margin-bottom: 20px;
+    margin-bottom: 110px;
 }
 
 .textfield > label {
 
-    color: #616161;
+    color: black;
     margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1vw;
 }
 
-.btn-cadastrar { /* Botão de Login */
+.btn-cadastrar { /* Botão de Login (na verdade é um link)*/
 
+    display: inline-block;
+    text-align: center;
     width: 50%;
     padding: 12px 0px;
-    margin: 25px;
+    margin: 0;
     border: none;
     border-radius: 15px;
     outline: none;
@@ -115,10 +163,20 @@ body {
     cursor: pointer;
     color: #fff;
     font-size: large;
+    text-decoration: none;
+    font-size: 1vw;
+    font-family: 'Roboto', sans-serif;
 
+}
+
+.btn-cadastrar a {
+
+    font-family: 'Roboto', sans-serif;
+    
 }
 
 .btn-cadastrar:hover { /* Para quando passar o mouse a cor do botão se alterar */
 
     background-color: #0e85ca;
 }
+

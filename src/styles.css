@@ -35,12 +35,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    left: 50%;
+    float: right;
+    margin-right: 210px;
     
 }
 
+.banner-innova {
 
+    position: absolute;
+    left: 0;
+    margin-left: 250px;
+}
 
 .textfield {
 
@@ -56,18 +61,21 @@ body {
 
     width: 100%;
     border: none;
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 15px;
     background: #d9d9d9;
     outline: none;
     box-sizing: border-box;
+    font-size: 1vw;
 }
 
 .textfield > label {
 
-    color: #616161;
-    margin-bottom: 5px;
+    color: #000000;
+    margin-bottom: 10px;
+    font-size: 1vw;
 }
+
 
 .btn-login { /* Botão de Login */
 
