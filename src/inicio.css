@@ -1,0 +1,131 @@
+body {
+
+    margin: 0;
+}
+
+
+.top-bar {
+
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background: #D9D9D9;
+    height: 10vh;
+    align-items: center;
+    box-shadow: 1px 2px 4px 1px #c2baba;
+    
+}
+
+.top-bar > h1 {
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    margin-left: 25px;
+    font-size: 2vw;
+}
+
+.top-bar > h2 {
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    position: absolute;
+    right: 0;
+    margin-right: 50px;
+}
+
+.top-bar .innova-logo {
+
+    margin-left: 45px;
+}
+
+#search {
+
+    width: 35vw;
+    border-radius: 10px;
+    display: flex;
+    outline: none;
+    border: none;
+    padding: 12px;
+    margin-left: 190px;
+    align-items: center;
+    font-size: 1vw;
+
+}
+
+.search-lupa {
+
+    position: absolute;
+    right: 750px;
+}
+
+#search::placeholder {
+
+    font-size: 1vw;
+}
+
+#search  .searchtype {
+
+    font-size: 1vw;
+}
+
+
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 115px; /* Stay at the top */
+    left: 0;
+    margin-top: -18px;
+    background-color: #082A46;
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s;
+    align-items: center;
+    justify-content: center;
+  }
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #f1f1f1;
+    display: block;
+    transition: 0.3s;
+    margin-bottom: 0px;
+    margin-top: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    
+
+}
+
+.sidebar-links {
+
+    margin-top: 210px;
+}
+
+.sidenav a:hover {
+    color: #818181;
+
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: -30px;
+    right: 10px;
+    font-size: 36px;
+    margin-left: 50px;
+
+ }
+
+ @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.btn-sidebar {
+
+    margin-left: 20px;
+}
+
