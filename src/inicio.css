@@ -1,6 +1,7 @@
 body {
 
     margin: 0;
+    overflow-x:  hidden;
 }
 
 
@@ -13,6 +14,7 @@ body {
     height: 10vh;
     align-items: center;
     box-shadow: 1px 2px 4px 1px #c2baba;
+    position: relative;
     
 }
 
@@ -127,5 +129,76 @@ body {
 .btn-sidebar {
 
     margin-left: 20px;
+    position: absolute;
+    top: 0;
+    transform: translateY(150%);
+    left: 0;
+}
+
+
+.home-banner {
+
+    width: 100%;
+    background: #f1f7f8;
+    display: flex;
+    align-items: center;
+    height: 5vh;
+    
+
+    
+}
+
+.cropped-home-banner {
+
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 1;
+    margin-right: 80px;
+    margin-top: 97px;
+    border-left: 0 solid #f1f7f800;
+    border-right: 110px solid #13d76203;
+}
+
+
+.text-container {
+
+    width: 40%;
+    align-items: center;
+    display: flex;
+    
+    
+}
+
+.text-col > h1 {
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    color: black;
+    position: absolute;
+    margin: 0;
+    transform: translateY(-150%); 
+    width: 30%; 
+    font-size: 2vw;
+    
+}
+
+.text-col > p {
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: black;
+    margin: 0;
+    
+}
+
+.text-col {
+
+    margin-left: 250px;
+    width: 30%;
+    font-size: 20px;
+    
+
 }
 
