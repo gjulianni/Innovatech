@@ -57,7 +57,7 @@ body {
 .search-lupa {
 
     position: absolute;
-    right: 750px;
+    right: 690px;
 }
 
 #search::placeholder {
@@ -155,10 +155,10 @@ body {
     height: 0;
     top: 0;
     left: 1;
-    margin-right: 80px;
-    margin-top: 97px;
+    margin-right: 38px;
+    margin-top: 94.5px;
     border-left: 0 solid #f1f7f800;
-    border-right: 110px solid #13d76203;
+    border-right: 150px solid #13d76203;
 }
 
 
@@ -199,6 +199,72 @@ body {
     width: 30%;
     font-size: 20px;
     
+}
+
+@media screen and (max-width: 1510px) {
+
+    .text-col {
+
+        margin-left: 100px;
+    }
+}
+
+@media screen and (max-width: 1287px) {
+
+    .cropped-home-banner {
+
+        display: none;
+    }
+
+    .text-col {
+
+        margin-left: 30px;
+    }
+}
+
+
+.info-section {
+
+    color: #fff;
+    margin: 0 50px 0;
+    margin-bottom: 10px;
+    
+    
+}
+
+.info-text > h2 {
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.info-text {
+
+    display: flex;
+    flex-direction: row;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    justify-content: space-around;
 
 }
+
+.info-descricoes {
+
+    display: flex;
+    flex-direction: row;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    justify-content: space-around;
+
+}
+
+.info-descricoes > p {
+
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+
 
