@@ -1,0 +1,28 @@
+CREATE TABLE Questões (
+  idAvaliação INTEGER  NOT NULL,
+  Enunciado VARCHAR(300)  NULL,
+  AlternativaCorreta CHAR(10) NULL,
+  PRIMARY KEY(idAvaliação)
+);
+
+CREATE TABLE Usuario (
+  idUsuario INTEGER NOT NULL,
+  Nome VARCHAR(50) NULL,
+  Email VARCHAR(50) NULL,
+  Data_Cadastro DATE NULL,
+  PRIMARY KEY(idUsuario)
+);
+
+
+CREATE TABLE Avaliação (
+  idAvaliação INTEGER  NOT NULL ,
+  Usuario_idUsuario INTEGER  NOT NULL,
+  idUsuario INTEGER  NULL,
+  Data_Avaliação DATE NULL,
+  Score DECIMAL NULL,
+  PRIMARY KEY (idAvaliação) );
+
+CREATE TABLE Avaliação_has_Questões (
+  Avaliação_idAvaliação INTEGER  NOT NULL,
+  Questões_idAvaliação INTEGER  NOT NULL,
+  PRIMARY KEY(Avaliação_idAvaliação, Questões_idAvaliação) );
