@@ -54,11 +54,6 @@ body {
 
 }
 
-.search-lupa {
-
-    position: absolute;
-    right: 690px;
-}
 
 #search::placeholder {
 
@@ -144,22 +139,13 @@ body {
     align-items: center;
     height: 5vh;
     
+    
+    
 
     
 }
 
-.cropped-home-banner {
 
-    position: absolute;
-    width: 0;
-    height: 0;
-    top: 0;
-    left: 1;
-    margin-right: 38px;
-    margin-top: 94.5px;
-    border-left: 0 solid #f1f7f800;
-    border-right: 150px solid #13d76203;
-}
 
 
 .text-container {
@@ -226,7 +212,7 @@ body {
 .info-section {
 
     color: #fff;
-    margin: 0 50px 0;
+    margin: 0 30px 0;
     margin-bottom: 10px;
     
     
@@ -266,5 +252,83 @@ body {
 }
 
 
+
+
+.scrum-slideshow {
+
+    position: relative;
+    max-width: 600px;
+    margin-left: 100px;
+    overflow: hidden;
+}
+
+.slides {
+
+    display: flex;
+    transition: 0.7s ease;
+    align-items: flex-end;
+}
+
+.slides img {
+
+    width: 100%;
+    flex-shrink: 0;
+    height: auto;
+}
+
+button {
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.prev {
+
+    left: 0;
+
+}
+
+.next {
+
+    right: 0;
+}
+
+.website-mid {
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    margin: 20px 30px 0;
+}
+
+.website-mid-text {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 40%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+}
+
+.website-mid-text > h1 {
+
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+        font-size: 50px;
+}
+
+#midtext-desc {
+
+    font-size: 20px;
+    margin-top: 15px;
+}
 
 
