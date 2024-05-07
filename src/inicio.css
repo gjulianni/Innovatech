@@ -220,8 +220,7 @@ body {
 
 .info-text > h2 {
 
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 0;
 }
 
 .info-text {
@@ -257,9 +256,10 @@ body {
 .scrum-slideshow {
 
     position: relative;
-    max-width: 600px;
+    max-width: 800px;
     margin-left: 100px;
     overflow: hidden;
+    
 }
 
 .slides {
@@ -298,24 +298,26 @@ button {
     right: 0;
 }
 
+
 .website-mid {
 
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 50vh;
+    height: 100vh;
     margin: 20px 30px 0;
 }
 
 .website-mid-text {
 
     display: flex;
-    align-items: center;
     flex-direction: column;
-    max-width: 40%;
+    align-items: center;
+    max-width: 100%;
     font-family: 'Roboto', sans-serif;
-    font-size: 30px;
+    font-size: 2rem;
+    justify-content: right;
+    margin-left: 10%;
 }
 
 .website-mid-text > h1 {
@@ -330,5 +332,7 @@ button {
     font-size: 20px;
     margin-top: 15px;
 }
+
+
 
 
