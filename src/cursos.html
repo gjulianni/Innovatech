@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Cursos</title>
+  <link rel="stylesheet" href="cursos.css">
+  <link rel="icon" href="../src/images/cadastro-img-innova.png">
+ 
+ 
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+
+<style>
+
+        body {
+
+            background-image: url("../src/images/cursos-bg.png")
+
+        }
+</style>
+
+<body>
+
+        <div class="main-cursos">
+            
+        <div class="top-bar">
+            <img class="innova-logo" src="../src/images/cadastro-img-innova.png" style="width: 75px; height: 80px;">
+            <h1>Innovatech</h1>
+            <h2 id="greeting"></h2>
+                    <label for="search"></label>
+                    <input type="search" id="search" placeholder="Pesquisar">
+                 <script src="greetings.js"></script>   
+        </div>
+        <span class="btn-sidebar" style="font-size:50px;cursor:pointer" onclick="openNav()">&#9776; </span>
+        <div id="sidebar" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="sidebar-links">
+            <a href="inicio.html">Home</a>
+            <a href="cursos.html">Curso</a>
+            <a href="#">Avaliação</a>
+            <a href="#">Certificação</a>
+        </div>
+          </div>
+          
+
+          <script>
+            function openNav() {
+              document.getElementById("sidebar").style.width = "250px";
+            }
+            
+            function closeNav() {
+              document.getElementById("sidebar").style.width = "0";
+            }
+            </script>
+            <div class="courses-container">
+                <div class="card">
+                    <h1>O que é Scrum?</h1>
+                    <p>Amplie seu conhecimento sobre a metodologia Scrum, utilizada
+                     por diversas empresas e equipes para aumentar a eficiência do desenvolvimento de projetos.</p>
+                </div>
+                <div class="card">
+                    <h1>Scrum Framework</h1>
+                    <p>Aprenda o conjunto de processos de desenvolvimento, planejamento e organização do Scrum, 
+                    e como o planejamento pode ser benéfico à equipe.</p>
+                </div>
+            </div>
+
+
+            </div>
+        </body>
+</html>
