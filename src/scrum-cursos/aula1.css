@@ -178,6 +178,8 @@ body {
 
     list-style:  none;
     align-self: center;
+    margin-top: 50%;
+    
 }
 
 .menu ul li {
@@ -185,7 +187,8 @@ body {
     list-style: none;
     margin-bottom: 20%;
     border: 4px solid #0BA3F9;
-    align-self: center;
+    
+    
     
 }
 
@@ -195,15 +198,21 @@ body {
 
 .toggle-button {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #007bff;
+    margin-right: 10%;
+    right: 0;
+    background-color: #0D95F6;
     color: white;
-    padding: 10px 20px;
+    padding: 20px 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     
+    
+}
+
+.toggle-button:hover {
+
+    background-color: #8bc5ee;
 }
 
 .close-button {
@@ -216,4 +225,18 @@ body {
     border: none;
     cursor: pointer;
     color: #fff;
+}
+
+@media screen and (max-width: 412px) {
+
+    .conteudo {
+
+     
+    max-width: 120%;
+    
+    }
+    .main-cursos {
+
+        width: 100%;
+    }
 }
