@@ -172,6 +172,13 @@ body {
         
 }
 
+.card:hover {
+
+    text-decoration: underline;
+}
+
+
+
 
 
 .card #card1-img {

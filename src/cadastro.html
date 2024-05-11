@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro</title>
   <link rel="stylesheet" href="cadastro.css">
+  <script src="./js/geral.js"></script>
  
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,14 +35,15 @@
                 
                 
                 <div class="textfield">
-                    <label for="nome-cpt">Primeiro, vamos precisar do seu nome completo:</label>
-                    <input class="first-input" type="text" name="nome-cpt">
-                    <label for="email">Agora, seu endereço de e-mail:</label>
-                    <input type="text" name="email">
+                    <label for="nome">Primeiro, vamos precisar do seu nome completo:</label>
+                    <input class="first-input" type="text" id="nome">
+                    <label for="mail">Agora, seu endereço de e-mail:</label>
+                    <input type="email" id="mail">
                 </div>
                 
                 
-                <a href="login.html" class="btn-cadastrar">Cadastrar</a>
+                <button class="btn-cadastrar" onclick="salvarUsuario()">Cadastrar</button>
+                <script src="./js/cadastro.js"></script>
             
             
             </div>
