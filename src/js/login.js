@@ -28,7 +28,7 @@ function logar() {
       .then((data) => {
         if (data.idusuario) {
           salvarLogin(data);
-          window.location.href = "./questionario.html";
+          window.location.href = "./inicio.html";
         }
         else{
           alert(data.erro);
