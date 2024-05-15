@@ -136,3 +136,11 @@ h3 {
     margin-top: 1;
 }
 
+@media screen and (max-width: 1366px) {
+
+    .banner-innova {
+
+        margin-left: 100px;
+        width: 500px;
+    }
+}
