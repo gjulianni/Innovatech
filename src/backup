@@ -1,0 +1,29 @@
+.card #card-img {
+
+    align-self: center;
+}
+
+.card #card2-img {
+
+    align-self: center;
+}
+
+.card #card3-img {
+
+    align-self: center;
+}
+
+.card #card4-img {
+
+    align-self: center;
+}
+
+.card #card5-img {
+
+    align-self: center;
+}
+
+.card #card6-img {
+
+    align-self: center;
+}

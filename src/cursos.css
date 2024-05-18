@@ -177,11 +177,7 @@ body {
     text-decoration: underline;
 }
 
-
-
-
-
-.card #card1-img {
+.card #card-img {
 
     align-self: center;
 }
@@ -206,6 +202,10 @@ body {
     align-self: center;
 }
 
+.card #card6-img {
+
+    align-self: center;
+}
 
 .footer {
 
