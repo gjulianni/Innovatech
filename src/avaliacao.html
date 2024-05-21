@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avaliação</title>
+  <link rel="stylesheet" href="avaliacao.css">
+  <link rel="icon" href="../src/images/cadastro-img-innova.png">
+ 
+ 
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+
+<style>
+
+        body {
+
+            background-image: url("../src/images/avaliacao-bg.png");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            
+        }
+
+        
+</style>
+
+<body>
+
+    <div class="top-bar">
+        <img class="innova-logo" src="../src/images/cadastro-img-innova.png" style="width: 75px; height: 80px;">
+        <h1>Innovatech</h1>
+        
+             <script src="./js/greetings.js"></script>   
+    </div>
+    <div class="main-avaliacao">
+        <span class="btn-sidebar" style="font-size:50px;cursor:pointer" onclick="openNav()">&#9776; </span>
+        <div id="sidebar" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="sidebar-links">
+            <a href="inicio.html">Home</a>
+            <a href="cursos.html">Curso</a>
+            <a href="#">Avaliação</a>
+            <a href="#">Certificação</a>
+        </div>
+          </div>
+          
+
+          <script>
+            function openNav() {
+              document.getElementById("sidebar").style.width = "250px";
+            }
+            
+            function closeNav() {
+              document.getElementById("sidebar").style.width = "0";
+            }
+            </script>
+
+                <div class="questoes-container">
+                    <h2>Questão 2</h2>
+                    <div class="text-area">
+                        <p>As retrospectivas são realizadas ao final de cada sprint para revisar o trabalho realizado e fazer ajustes no plano de projeto.</p>
+                    </div>
+                    <h3>Enunciado</h3>
+                    <div class="options">
+                        <label>
+                            <input type="radio" name="resposta" value="verdadeiro">
+                            <span></span>
+                            Verdadeiro
+                        </label>
+                        <label>
+                            <input type="radio" name="resposta" value="falso">
+                            <span></span>
+                            Falso
+                        </label>
+                    </div>
+                </div>
+                <div class="setinhas">
+                    <h1>&#129144;&emsp14;&emsp14;&emsp14;&#129146;	
+                    </h1>
+                </div>
+            </div>
+    </body>
+    </html>

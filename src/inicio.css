@@ -348,3 +348,24 @@ button {
     bottom: 0;
     width: 100%;
 }
+
+.btn-login {
+
+    display: inline-block;
+    padding: 15px 25px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    margin-right: 3%;
+    background-color: #0b395f;
+    border-radius: 5px;
+}
+
+.btn-login:hover {
+
+    background-color: #425a6e;
+}
