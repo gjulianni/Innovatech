@@ -9,7 +9,7 @@ function exibirSaudacao() {
     var dadosUsuario = localStorage.getItem("usuario");
 
     if (!dadosUsuario) {
-        saudacaoH2.textContent = "Erro ao carregar a saudação: Dados do usuário não encontrados";
+        saudacaoH2.textContent = "Erro";
         return;
     }
 
