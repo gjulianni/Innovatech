@@ -124,10 +124,7 @@ body {
 
  }
 
- @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-}
+
 
 .btn-sidebar {
 
@@ -215,7 +212,60 @@ body {
     text-align: center;
     position: relative;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
 }
 /* top, right, bottom and left */
 
+
+@media only screen and (max-width: 460px) {
+
+    .courses-container {
+
+        margin: 20% 0 0 -20%;
+    }
+
+    .top-bar #greeting {
+
+        display: none;
+    }
+
+    .top-bar .innova-logo {
+
+        margin-left: 25px;
+    }
+
+    .footer {
+
+        width: 93%;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+
+    .footer {
+
+        width: 102%;
+    }
+
+    .courses-container {
+
+        margin: 20% 0 0 -23%;
+    }
+
+    .top-bar {
+        width: 110vw;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+
+    .top-bar {
+
+        width: 105xvw;
+    }
+
+    .courses-container {
+
+        margin: 20% 0 0 -25%;
+    }
+}

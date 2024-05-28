@@ -124,10 +124,7 @@ body {
 
  }
 
- @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-}
+
 
 .btn-sidebar {
 
@@ -465,3 +462,11 @@ body {
 }
 
 
+@media only screen and (max-width:430px) {
+
+    .top-bar {
+
+        width: 120vw;
+    }
+
+}
