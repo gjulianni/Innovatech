@@ -121,10 +121,7 @@ body {
 
  }
 
- @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-}
+
 
 .btn-sidebar {
 
@@ -143,10 +140,15 @@ body {
     display: flex;
     align-items: center;
     height: 5vh;
+    background-image: url('https://arquivo.devmedia.com.br/marketing/img/guia-scrum-34636.png');
+    background-repeat: no-repeat;
+    padding: 300px 0 75px;
+    background-size: 45vw; 
+    height: auto 100%;
+    background-position: right;
     
-    
-    
-
+ /* background-image: url('https://arquivo.devmedia.com.br/marketing/img/guia-scrum-34636.png'); background-position: right;
+            background-repeat: no-repeat; padding: 300px 0 75px; background-size: 45vw; height: auto 100%; color: #ffffff;"> */
     
 }
 
@@ -181,6 +183,18 @@ body {
     font-size: 20px;
 
     
+}
+
+.left-content {
+
+    flex: 1;
+    max-width: 50%;
+}
+
+.right-content {
+
+    flex: 1;
+    max-width: 50%;
 }
 
 @media screen and (max-width: 1510px) {
@@ -301,16 +315,6 @@ button {
     right: 0;
 }
 
-
-.website-mid {
-
-    width: 100%;
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    margin: 20px 30px 0;
-}
-
 .website-mid-text {
 
     display: flex;
@@ -368,4 +372,99 @@ button {
 .btn-login:hover {
 
     background-color: #425a6e;
+}
+
+@media only screen and (max-width:850px) {
+
+    .website-development {
+
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    .top-bar #search {
+
+        display: none;
+    }
+
+    .text-col {
+
+        width: 50%;
+        display: flex;
+        align-items: center;
+        
+    }
+
+    .text-col > p {
+
+        width: 80%;
+    }
+
+    .text-col > h1 {
+
+        
+        font-size: 2rem;
+        width: 40%;
+        
+        
+    }
+    .home-banner {
+
+        background-size: 45vw 20vh;
+        
+    }
+
+    .left-content {
+
+        width: 100%; 
+    }
+
+    .website-mid-text {
+
+        
+        width: 100%;
+    }
+
+    .img-scrum {
+
+        width: 470px;
+    }
+
+    .footer {
+
+        width: 96vw;
+    }
+
+    .info-text {
+
+        font-size: 14px;
+       
+    }
+
+    
+    .website-mid-text > h1:first-child {
+
+        white-space: nowrap;
+        font-size: 3.5rem;
+        
+    }
+
+
+    .website-mid-text #midtext-desc {
+
+        
+        font-size: 2rem;
+        
+
+        
+    }
+
+    .main-inicio {
+
+        width: 100vw;
+    }
 }
