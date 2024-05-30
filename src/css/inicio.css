@@ -421,12 +421,14 @@ button {
     .left-content {
 
         width: 100%; 
+        flex: none;
     }
 
     .website-mid-text {
 
         
         width: 100%;
+        flex: none  ;
     }
 
     .img-scrum {
@@ -445,8 +447,14 @@ button {
        
     }
 
-    
-    .website-mid-text > h1:first-child {
+
+    .website-mid-text > h1:nth-child(1) {
+
+        white-space: nowrap;
+        font-size: 3.5rem;
+    }
+
+    .website-mid-text > h1:nth-child(2) {
 
         white-space: nowrap;
         font-size: 3.5rem;
@@ -466,5 +474,10 @@ button {
     .main-inicio {
 
         width: 100vw;
+    }
+
+    .right-content{
+
+        display: none;
     }
 }
