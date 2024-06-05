@@ -100,6 +100,22 @@ body {
 
 }
 
+
+.sidenav a:last-child {
+
+    color: red;
+    position: absolute;
+    margin-top: 280%;
+    
+}
+
+
+.sidenav a:last-child:hover {
+
+    color: rgb(87, 7, 7);
+    
+}
+
 .sidebar-links {
 
     display: flex;
@@ -107,6 +123,7 @@ body {
     justify-content: center;
     flex-grow: 1;
 }
+
 
 .sidenav a:hover {
     color: #818181;

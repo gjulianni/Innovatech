@@ -103,6 +103,18 @@ body {
 
 }
 
+.sidenav a:last-child {
+
+    color: red;
+    position: absolute;
+    margin-top: 240%;
+}
+
+.sidenav a:last-child:hover {
+
+    color: rgb(75, 12, 4);
+}
+
 .sidebar-links {
 
     display: flex;

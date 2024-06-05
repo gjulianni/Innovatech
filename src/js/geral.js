@@ -15,7 +15,7 @@ function logout() {
   // Remover a propriedade `usuario` do localStorage
   localStorage.removeItem("usuario");
   // Redireciona para a página de login
-  window.location.href = "./login.html";
+  window.location.href = "../frontend/login.html";
 }
 
 function login() {
