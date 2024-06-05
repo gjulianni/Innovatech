@@ -66,28 +66,74 @@
             </script>
 
                 <div class="questoes-container">
+                    <div class="questao">
                     <h2>Questão 2</h2>
+                </div>
                     <div class="text-area">
-                        <p>As retrospectivas são realizadas ao final de cada sprint para revisar o trabalho realizado e fazer ajustes no plano de projeto.</p>
+                        <p></p>
                     </div>
                     <h3>Enunciado</h3>
                     <div class="options">
                         <label>
-                            <input type="radio" name="resposta" value="verdadeiro">
+                            <input type="radio" name="resposta" value="true">
                             <span></span>
                             Verdadeiro
                         </label>
                         <label>
-                            <input type="radio" name="resposta" value="falso">
+                            <input type="radio" name="resposta" value="false">
                             <span></span>
                             Falso
                         </label>
                     </div>
+                    
                 </div>
+                
                 <div class="setinhas">
-                    <h1>&#129144;&emsp14;&emsp14;&emsp14;&#129146;	
-                    </h1>
+                    <h1 style="margin-right: 10%;">&#129144;</h1>
+                    <h1>&#129146;</h1>
                 </div>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+        const textosQuestoes = [
+            "As retrospectivas são realizadas ao final de cada sprint para revisar o trabalho realizado e fazer ajustes no plano de projeto.",
+            "Os valores do Manifesto Ágil priorizam as pessoas e suas interações sobre ferramentas e processos?",
+            "O valor: Software em funcionamento mais que documentação abrangente; enfatiza a entrega contínua de software funcional, colocando-a acima da documentação extensiva?",
+            "O valor Colaboração com cliente mais que negociação de contratos sugere que é mais importante estabelecer uma colaboração próxima e contínua com os clientes do que focar exclusivamente em negociações contratuais?"
+        ];
+        const h2 = document.querySelector('.questao h2');
+        const textArea = document.querySelector('.text-area p');
+        let indexAtual = 0;
+
+
+        // Função para atualizar o texto da questão atual
+        const atualizarTextoQuestao = () => {
+          h2.textContent = `Questão ${indexAtual + 1}`;
+          textArea.textContent = textosQuestoes[indexAtual];
+        };
+
+        // Inicialização
+        atualizarTextoQuestao();
+
+        // Evento para a seta da direita
+        document.querySelector('.setinhas h1:first-child').addEventListener('click', () => {
+            if (indexAtual > 0) {
+                indexAtual--;
+                atualizarTextoQuestao();
+            }
+        });
+
+        // Evento para a seta da esquerda
+        document.querySelector('.setinhas h1:last-child').addEventListener('click', () => {
+            if (indexAtual < textosQuestoes.length - 1) {
+                indexAtual++;
+                atualizarTextoQuestao();
+            }
+        });
+    });
+</script>
+
+
             </div>
     </body>
     </html>

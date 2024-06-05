@@ -150,8 +150,12 @@ body {
     padding: 80px;
     border-radius: 15px;
     max-width: 700px;
+    height: 450px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
   }
 
   .questoes-container > h3 {
@@ -171,26 +175,39 @@ body {
 
   .text-area {
     background-color: white;
-    padding: 60px;
+    padding: 40px;
     border-radius: 30px;
+    height: 170px;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     border: 5px solid #0BA3F9;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .text-area p {
 
     margin: 0;
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: 500;
     display: inline;
     
   }
 
+h3 {
+
+    margin-top: 0px;
+  }
+
   .options {
     display: flex;
     justify-content: space-around;
+    position: absolute; /* Definir como posição absoluta */
+    bottom: 50px; /* Posicionar as opções a partir do fundo da questão */
+    left: 50%; /* Alinhar ao centro */
+    transform: translateX(-50%); /* Centralizar horizontalmente */
+    width: 80%; /* Definir largura */
     
   }
 
