@@ -9,7 +9,6 @@
   <link rel="icon" href="../src/images/cadastro-img-innova.png">
   <script src="../js/geral.js"></script>
  
- 
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,71 +66,103 @@
             }
             </script>
 
-                <div class="questoes-container">
-                    <div class="questao">
-                    <h2>Questão 2</h2>
-                </div>
-                    <div class="text-area">
-                        <p></p>
-                    </div>
-                    <h3>Enunciado</h3>
-                    <div class="options">
-                        <label>
-                            <input type="radio" name="resposta" value="true">
-                            <span></span>
-                            Verdadeiro
-                        </label>
-                        <label>
-                            <input type="radio" name="resposta" value="false">
-                            <span></span>
-                            Falso
-                        </label>
-                    </div>
-                    
-                </div>
-                
-                <div class="setinhas">
-                    <h1 style="margin-right: 10%;">&#129144;</h1>
-                    <h1>&#129146;</h1>
-                </div>
+<div class="questoes-container">
+    <div class="questao">
+      <h2>Questão 1</h2>
+    </div>
+    <div class="text-area">
+      <p></p>
+    </div>
+    <h3>Enunciado</h3>
+    <div class="options">
+        <input type="hidden" name="idquestao" />
+      <label>
+        <input type="radio" name="resposta" value="true">
+        <span></span>
+        Verdadeiro
+      </label>
+      <label>
+        <input type="radio" name="resposta" value="false">
+        <span></span>
+        Falso
+      </label>
+    </div>
+  </div>
+  <div class="setinhas">
+    <h1 style="margin-right: 10%;" onclick="prevQuestion()">&#129144;</h1>
+    <h1 onclick="nextQuestion()">&#129146;</h1>
+  </div>
+  <script src="../js/evaluation.js"></script>
+</div>
+</body>
+</html>
 
                 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-        fetch('http://localhost:3030/questao') // Aponte para o servidor backend
-            .then(response => response.json())
-            .then(data => {
-                let questoes = data;
-                const h2 = document.querySelector('.questao h2');
-                const textArea = document.querySelector('.text-area p');
-                let indexAtual = 0;
+  let questions = [];
+let currentQuestionIndex = 0;
+let answers = [];
 
-                // Função para atualizar o texto da questão atual
-                const atualizarTextoQuestao = () => {
-                    h2.textContent = `Questão ${indexAtual + 1}`;
-                    textArea.textContent = questoes[indexAtual].enunciado;
-                };
+document.addEventListener("DOMContentLoaded", async () => {
+  const response = await fetch('http://localhost:3030/questao'); // Aponte para o servidor backend
+  questions = await response.json();
+  answers = questions.map(q => ({ idquestao: q.id, answer: null })); // Inicializa o array de respostas
+  showQuestion();
+});
 
-                // Inicialização
-                atualizarTextoQuestao();
+function showQuestion() {
+  const h2 = document.querySelector('.questao h2');
+  const textArea = document.querySelector('.text-area p');
+  const trueRadio = document.querySelector('input[name="resposta"][value="true"]');
+  const falseRadio = document.querySelector('input[name="resposta"][value="false"]');
+  const inputIdQuestao = document.querySelector('input[name="idquestao"]');
+  const question = questions[currentQuestionIndex];
+  
+  h2.textContent = `Questão ${currentQuestionIndex + 1}`;
+  textArea.textContent = question.enunciado;
+  inputIdQuestao.value = question.idquestao;
+  trueRadio.checked = answers[currentQuestionIndex].answer === true;
+  falseRadio.checked = answers[currentQuestionIndex].answer === false;
+}
 
-                // Evento para a seta da direita
-                document.querySelector('.setinhas h1:first-child').addEventListener('click', () => {
-                    if (indexAtual > 0) {
-                        indexAtual--;
-                        atualizarTextoQuestao();
-                    }
-                });
+function saveAnswer() {
+  const selectedAnswer = document.querySelector('input[name="resposta"]:checked');
+  if (selectedAnswer) {
+    answers[currentQuestionIndex].answer = selectedAnswer.value === 'true';
+    answers[currentQuestionIndex].idquestao =document.querySelector('input[name="idquestao"]').value
+  }
+}
 
-                // Evento para a seta da esquerda
-                document.querySelector('.setinhas h1:last-child').addEventListener('click', () => {
-                    if (indexAtual < questoes.length - 1) {
-                        indexAtual++;
-                        atualizarTextoQuestao();
-                    }
-                });
-            })
-            .catch(error => console.error('Error fetching questions:', error));
-    });
+function prevQuestion() {
+  saveAnswer();
+  if (currentQuestionIndex > 0) {
+    currentQuestionIndex--;
+    showQuestion();
+  }
+}
+
+function nextQuestion() {
+  saveAnswer();
+  if (currentQuestionIndex < questions.length - 1) {
+    currentQuestionIndex++;
+    showQuestion();
+  } else {
+    submitAnswers();
+  }
+}
+
+async function submitAnswers() {
+  saveAnswer();
+  const response = await fetch('http://localhost:3030/evaluation/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ answers }), // Envia as respostas ao backend
+  });
+
+  const result = await response.json();
+  alert(`Você acertou ${result.score} de ${questions.length} questões. Porcentagem: ${result.percentage.toFixed(2)}%`);
+}
 </script>
 
 

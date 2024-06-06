@@ -2,8 +2,10 @@ function logar() {
   const mail = document.getElementById("login-mail").value.trim();
 
   if (!mail || mail.length == 0) {
-    alert("Forneça o e-mail");
+    document.getElementsByClassName("errormsg")[0].innerText = "Por favor, insira um e-mail para logar.";
+    document.getElementsByClassName("errormsg")[0].style.display = "flex";
   } else {
+    document.getElementsByClassName("errormsg")[0].style.display = "none";
     const usuario = { mail };
 
     // Configuração da requisição

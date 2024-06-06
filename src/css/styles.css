@@ -116,7 +116,8 @@ h3 {
 
     width: 60%;
     padding: 13px 0px;
-    margin: 25px;
+    margin: 35px;
+    margin-top: 30px;
     border: none;
     border-radius: 15px;
     background: #049bf3;
@@ -144,6 +145,15 @@ p a {
     color: #0CA0F3;
     font-weight: 500;
     margin-top: 1;
+}
+
+.errormsg {
+
+    align-self: flex-start;
+    display: none;
+    margin-left: 6%;
+    color: red;
+    margin-top: 10px;
 }
 
 
