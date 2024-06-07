@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../css/avaliacao.css">
   <link rel="icon" href="../src/images/cadastro-img-innova.png">
   <script src="../js/geral.js"></script>
+  <script src="../backend/servidor/src/controladores/questionario.js"></script>
  
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +40,7 @@
     <div class="top-bar">
         <img class="innova-logo" src="../images/cadastro-img-innova.png" style="width: 75px; height: 80px;">
         <h1>Innovatech</h1>
-        
+          <button class="btn-conclusao" onclick="enviarRespostas()">Concluir Avaliação</button>
              <script src="./js/greetings.js"></script>   
     </div>
     <div class="main-avaliacao">
@@ -65,6 +66,12 @@
               document.getElementById("sidebar").style.width = "0";
             }
             </script>
+            <div class="popup-box-container">
+            <div class="popup-box">
+              <h1>Não aprovado</h1>
+                <p>Sua nota: `${nota}`</p>
+            </div>
+          </div>
 
 <div class="questoes-container">
     <div class="questao">
@@ -89,83 +96,83 @@
     </div>
   </div>
   <div class="setinhas">
-    <h1 style="margin-right: 10%;" onclick="prevQuestion()">&#129144;</h1>
-    <h1 onclick="nextQuestion()">&#129146;</h1>
+    <h1 style="margin-right: 10%;" onclick="questaoAnterior()">&#129144;</h1>
+    <h1 onclick="proximaQuestao()">&#129146;</h1>
   </div>
   <script src="../js/evaluation.js"></script>
 </div>
 </body>
 </html>
 
+
                 <script>
-  let questions = [];
-let currentQuestionIndex = 0;
-let answers = [];
+ let questoes = [];
+let indiceQuestaoAtual = 0;
+let respostas = [];
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const response = await fetch('http://localhost:3030/questao'); // Aponte para o servidor backend
-  questions = await response.json();
-  answers = questions.map(q => ({ idquestao: q.id, answer: null })); // Inicializa o array de respostas
-  showQuestion();
+  const resposta = await fetch('http://localhost:3030/questao'); // Acessa o servidor backend
+  questoes = await resposta.json();
+  respostas = questoes.map(q => ({ idquestao: q.id, resposta: null })); // Inicializa o array de respostas
+  exibirQuestao();
 });
 
-function showQuestion() {
+function exibirQuestao() {
   const h2 = document.querySelector('.questao h2');
   const textArea = document.querySelector('.text-area p');
   const trueRadio = document.querySelector('input[name="resposta"][value="true"]');
   const falseRadio = document.querySelector('input[name="resposta"][value="false"]');
   const inputIdQuestao = document.querySelector('input[name="idquestao"]');
-  const question = questions[currentQuestionIndex];
+  const questaoAtual = questoes[indiceQuestaoAtual];
   
-  h2.textContent = `Questão ${currentQuestionIndex + 1}`;
-  textArea.textContent = question.enunciado;
-  inputIdQuestao.value = question.idquestao;
-  trueRadio.checked = answers[currentQuestionIndex].answer === true;
-  falseRadio.checked = answers[currentQuestionIndex].answer === false;
+  h2.textContent = `Questão ${indiceQuestaoAtual + 1}`;
+  textArea.textContent = questaoAtual.enunciado;
+  inputIdQuestao.value = questaoAtual.idquestao;
+  trueRadio.checked = respostas[indiceQuestaoAtual].resposta === true;
+  falseRadio.checked = respostas[indiceQuestaoAtual].resposta === false;
 }
 
-function saveAnswer() {
-  const selectedAnswer = document.querySelector('input[name="resposta"]:checked');
-  if (selectedAnswer) {
-    answers[currentQuestionIndex].answer = selectedAnswer.value === 'true';
-    answers[currentQuestionIndex].idquestao =document.querySelector('input[name="idquestao"]').value
+function salvarResposta() {
+  const respostaSelecionada = document.querySelector('input[name="resposta"]:checked');
+  if (respostaSelecionada) {
+    respostas[indiceQuestaoAtual].resposta = respostaSelecionada.value === 'true';
+    respostas[indiceQuestaoAtual].idquestao = document.querySelector('input[name="idquestao"]').value;
   }
 }
 
-function prevQuestion() {
-  saveAnswer();
-  if (currentQuestionIndex > 0) {
-    currentQuestionIndex--;
-    showQuestion();
+function questaoAnterior() {
+  salvarResposta();
+  if (indiceQuestaoAtual > 0) {
+    indiceQuestaoAtual--;
+    exibirQuestao();
   }
 }
 
-function nextQuestion() {
-  saveAnswer();
-  if (currentQuestionIndex < questions.length - 1) {
-    currentQuestionIndex++;
-    showQuestion();
+function proximaQuestao() {
+  salvarResposta();
+  if (indiceQuestaoAtual < questoes.length - 1) {
+    indiceQuestaoAtual++;
+    exibirQuestao();
   } else {
-    submitAnswers();
+    enviarRespostas();
   }
 }
 
-async function submitAnswers() {
-  saveAnswer();
-  const response = await fetch('http://localhost:3030/evaluation/submit', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ answers }), // Envia as respostas ao backend
-  });
-
-  const result = await response.json();
-  alert(`Você acertou ${result.score} de ${questions.length} questões. Porcentagem: ${result.percentage.toFixed(2)}%`);
-}
+async function enviarRespostas() {
+      salvarResposta();
+      const dadosUsuario = JSON.parse(localStorage.getItem('usuario'));
+      const idusuario = dadosUsuario.idusuario;
+      const resposta = await fetch('http://localhost:3030/questionario', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ idusuario, questoes: respostas }), // Envia as respostas ao backend
+      });
+      // Trate a resposta da API conforme necessário
+      console.log(await resposta.json()); // Exemplo de como você pode lidar com a resposta
+    }
 </script>
-
-
             </div>
     </body>
     </html>

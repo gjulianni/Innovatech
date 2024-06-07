@@ -1,4 +1,4 @@
-const { pool } = require("./bd.js");
+const { pool } = require("./bd");
 
 async function listarQuestionario(req, res) {
   // obtém o idusuario passado pelo body da requisição
