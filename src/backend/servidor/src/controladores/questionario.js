@@ -104,9 +104,11 @@ async function salvarQuestionario(req, res) {
         } else {
           return res.json({ erro: "Problemas ao salvar o questionário. Tente novamente" });
         }
+        
       } else {
-        return res.json({ erro: `Você obteve nota ${nota}. Tente novamente.`});
+        return res.status(400).json({ erro: `Você obteve nota ${nota}. Tente novamente.`, nota });
       }
+
     }
   }
 }

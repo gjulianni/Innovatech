@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Avaliação</title>
   <link rel="stylesheet" href="../css/avaliacao.css">
-  <link rel="icon" href="../src/images/cadastro-img-innova.png">
+  <link rel="icon" href="../images/banner-innova.png">
   <script src="../js/geral.js"></script>
   <script src="../backend/servidor/src/controladores/questionario.js"></script>
  
@@ -66,12 +66,22 @@
               document.getElementById("sidebar").style.width = "0";
             }
             </script>
+
+            
             <div class="popup-box-container">
-            <div class="popup-box">
-              <h1>Não aprovado</h1>
-                <p>Sua nota: `${nota}`</p>
+              <div class="popup-box">
+                <button class="popup-close-btn" onclick="fecharpopup()" style="background-color: #d3d3d3; border: none; color: red; font-weight: 900; font-size: 2.5rem; cursor: pointer; position: absolute; top: 0; right: 0; margin-right: 5px;">X</button>
+                <h1>Não Aprovado</h1>
+                <p id="nota-texto">Sua nota: </p>
+                <p>Quantidade de questões acertadas: 10 de 20</p>
+                <a href="./avaliacao.html"><button id="refazer-aval">Refazer avaliação</button></a>
+              </div>
             </div>
-          </div>
+            <script>
+              function fecharpopup() {
+              document.getElementsByClassName("popup-box-container")[0].style.display = "none";
+              }
+            </script>
 
 <div class="questoes-container">
     <div class="questao">
@@ -153,9 +163,7 @@ function proximaQuestao() {
   if (indiceQuestaoAtual < questoes.length - 1) {
     indiceQuestaoAtual++;
     exibirQuestao();
-  } else {
-    enviarRespostas();
-  }
+  } 
 }
 
 async function enviarRespostas() {
@@ -169,8 +177,19 @@ async function enviarRespostas() {
         },
         body: JSON.stringify({ idusuario, questoes: respostas }), // Envia as respostas ao backend
       });
-      // Trate a resposta da API conforme necessário
-      console.log(await resposta.json()); // Exemplo de como você pode lidar com a resposta
+
+      const resultado = await resposta.json();
+  if (resposta.status === 400) {
+    // Exibir caixa de popup caso a nota seja menor que 70
+    const popupBox = document.querySelector('.popup-box-container');
+    popupBox.style.display = "flex";
+
+    const notaTexto = document.getElementById('nota-texto');
+    notaTexto.textContent = `Sua nota: ${resultado.nota}`; // Assumindo que a resposta JSON tenha um campo 'nota'
+  }
+  console.log(resultado); // Exemplo de como você pode lidar com a resposta
+  // Trate a resposta da API conforme necessário
+  // Exemplo de como você pode lidar com a resposta
     }
 </script>
             </div>
