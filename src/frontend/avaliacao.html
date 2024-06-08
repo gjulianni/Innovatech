@@ -73,7 +73,7 @@
                 <button class="popup-close-btn" onclick="fecharpopup()" style="background-color: #d3d3d3; border: none; color: red; font-weight: 900; font-size: 2.5rem; cursor: pointer; position: absolute; top: 0; right: 0; margin-right: 5px;">X</button>
                 <h1>Não Aprovado</h1>
                 <p id="nota-texto">Sua nota: </p>
-                <p>Quantidade de questões acertadas: 10 de 20</p>
+                <p>Você não alcançou a nota suficiente para aprovação. </p>
                 <a href="./avaliacao.html"><button id="refazer-aval">Refazer avaliação</button></a>
               </div>
             </div>
@@ -82,116 +82,140 @@
               document.getElementsByClassName("popup-box-container")[0].style.display = "none";
               }
             </script>
+            <script>
+              function fecharAprovadoPopup() {
+                document.getElementsByClassName("popup-box-aprovado-container")[0].style.display = "none";
+              }
+            </script>
 
-<div class="questoes-container">
-    <div class="questao">
-      <h2>Questão 1</h2>
-    </div>
-    <div class="text-area">
-      <p></p>
-    </div>
-    <h3>Enunciado</h3>
-    <div class="options">
-        <input type="hidden" name="idquestao" />
-      <label>
-        <input type="radio" name="resposta" value="true">
-        <span></span>
-        Verdadeiro
-      </label>
-      <label>
-        <input type="radio" name="resposta" value="false">
-        <span></span>
-        Falso
-      </label>
-    </div>
-  </div>
-  <div class="setinhas">
-    <h1 style="margin-right: 10%;" onclick="questaoAnterior()">&#129144;</h1>
-    <h1 onclick="proximaQuestao()">&#129146;</h1>
-  </div>
-  <script src="../js/evaluation.js"></script>
-</div>
-</body>
-</html>
-
-
-                <script>
- let questoes = [];
-let indiceQuestaoAtual = 0;
-let respostas = [];
-
-document.addEventListener("DOMContentLoaded", async () => {
-  const resposta = await fetch('http://localhost:3030/questao'); // Acessa o servidor backend
-  questoes = await resposta.json();
-  respostas = questoes.map(q => ({ idquestao: q.id, resposta: null })); // Inicializa o array de respostas
-  exibirQuestao();
-});
-
-function exibirQuestao() {
-  const h2 = document.querySelector('.questao h2');
-  const textArea = document.querySelector('.text-area p');
-  const trueRadio = document.querySelector('input[name="resposta"][value="true"]');
-  const falseRadio = document.querySelector('input[name="resposta"][value="false"]');
-  const inputIdQuestao = document.querySelector('input[name="idquestao"]');
-  const questaoAtual = questoes[indiceQuestaoAtual];
-  
-  h2.textContent = `Questão ${indiceQuestaoAtual + 1}`;
-  textArea.textContent = questaoAtual.enunciado;
-  inputIdQuestao.value = questaoAtual.idquestao;
-  trueRadio.checked = respostas[indiceQuestaoAtual].resposta === true;
-  falseRadio.checked = respostas[indiceQuestaoAtual].resposta === false;
-}
-
-function salvarResposta() {
-  const respostaSelecionada = document.querySelector('input[name="resposta"]:checked');
-  if (respostaSelecionada) {
-    respostas[indiceQuestaoAtual].resposta = respostaSelecionada.value === 'true';
-    respostas[indiceQuestaoAtual].idquestao = document.querySelector('input[name="idquestao"]').value;
-  }
-}
-
-function questaoAnterior() {
-  salvarResposta();
-  if (indiceQuestaoAtual > 0) {
-    indiceQuestaoAtual--;
-    exibirQuestao();
-  }
-}
-
-function proximaQuestao() {
-  salvarResposta();
-  if (indiceQuestaoAtual < questoes.length - 1) {
-    indiceQuestaoAtual++;
-    exibirQuestao();
-  } 
-}
-
-async function enviarRespostas() {
-      salvarResposta();
-      const dadosUsuario = JSON.parse(localStorage.getItem('usuario'));
-      const idusuario = dadosUsuario.idusuario;
-      const resposta = await fetch('http://localhost:3030/questionario', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ idusuario, questoes: respostas }), // Envia as respostas ao backend
-      });
-
-      const resultado = await resposta.json();
-  if (resposta.status === 400) {
-    // Exibir caixa de popup caso a nota seja menor que 70
-    const popupBox = document.querySelector('.popup-box-container');
-    popupBox.style.display = "flex";
-
-    const notaTexto = document.getElementById('nota-texto');
-    notaTexto.textContent = `Sua nota: ${resultado.nota}`; // Assumindo que a resposta JSON tenha um campo 'nota'
-  }
-  console.log(resultado); // Exemplo de como você pode lidar com a resposta
-  // Trate a resposta da API conforme necessário
-  // Exemplo de como você pode lidar com a resposta
-    }
-</script>
+            <div class="popup-box-aprovado-container">
+              <div class="popup-box-aprovado">
+                <button class="popup-aprovado-close-btn" onclick="fecharAprovadoPopup()" style="background-color: #d3d3d3; border: none; color: red; font-weight: 900; font-size: 2.5rem; cursor: pointer; position: absolute; top: 0; right: 0; margin-right: 5px;">X</button>
+                <h1>Parabéns! Você foi aprovado!</h1>
+                <p id="nota-aprovado-texto">Sua nota: </p>
+                <a href="./certificacao.html"><button id="obter-certificado">Obter certificado</button></a>
+              </div>
             </div>
-    </body>
-    </html>
+
+            <div class="questoes-container">
+              <div class="questao">
+                <h2>Questão 1</h2>
+              </div>
+              <div class="text-area">
+                <p></p>
+              </div>
+              <h3>Enunciado</h3>
+              <div class="options">
+                  <input type="hidden" name="idquestao" />
+                <label>
+                  <input type="radio" name="resposta" value="true">
+                  <span></span>
+                  Verdadeiro
+                </label>
+                <label>
+                  <input type="radio" name="resposta" value="false">
+                  <span></span>
+                  Falso
+                </label>
+              </div>
+            </div>
+            <div class="setinhas">
+              <h1 style="margin-right: 10%;" onclick="questaoAnterior()">&#129144;</h1>
+              <h1 onclick="proximaQuestao()">&#129146;</h1>
+            </div>
+            <script src="../js/evaluation.js"></script>
+          </div>
+          </body>
+          </html>
+          
+          
+                          <script>
+           let questoes = [];
+          let indiceQuestaoAtual = 0;
+          let respostas = [];
+          
+          document.addEventListener("DOMContentLoaded", async () => {
+            const resposta = await fetch('http://localhost:3030/questao'); // Acessa o servidor backend
+            questoes = await resposta.json();
+            respostas = questoes.map(q => ({ idquestao: q.id, resposta: null })); // Inicializa o array de respostas
+            exibirQuestao();
+          });
+          
+          function exibirQuestao() {
+            const h2 = document.querySelector('.questao h2');
+            const textArea = document.querySelector('.text-area p');
+            const trueRadio = document.querySelector('input[name="resposta"][value="true"]');
+            const falseRadio = document.querySelector('input[name="resposta"][value="false"]');
+            const inputIdQuestao = document.querySelector('input[name="idquestao"]');
+            const questaoAtual = questoes[indiceQuestaoAtual];
+            
+            h2.textContent = `Questão ${indiceQuestaoAtual + 1}`;
+            textArea.textContent = questaoAtual.enunciado;
+            inputIdQuestao.value = questaoAtual.idquestao;
+            trueRadio.checked = respostas[indiceQuestaoAtual].resposta === true;
+            falseRadio.checked = respostas[indiceQuestaoAtual].resposta === false;
+          }
+          
+          function salvarResposta() {
+            const respostaSelecionada = document.querySelector('input[name="resposta"]:checked');
+            if (respostaSelecionada) {
+              respostas[indiceQuestaoAtual].resposta = respostaSelecionada.value === 'true';
+              respostas[indiceQuestaoAtual].idquestao = document.querySelector('input[name="idquestao"]').value;
+            }
+          }
+          
+          function questaoAnterior() {
+            salvarResposta();
+            if (indiceQuestaoAtual > 0) {
+              indiceQuestaoAtual--;
+              exibirQuestao();
+            }
+          }
+          
+          function proximaQuestao() {
+            salvarResposta();
+            if (indiceQuestaoAtual < questoes.length - 1) {
+              indiceQuestaoAtual++;
+              exibirQuestao();
+            } 
+          }
+          
+          async function enviarRespostas() {
+                salvarResposta();
+                const dadosUsuario = JSON.parse(localStorage.getItem('usuario'));
+                const idusuario = dadosUsuario.idusuario;
+                const resposta = await fetch('http://localhost:3030/questionario', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({ idusuario, questoes: respostas }), // Envia as respostas ao backend
+                });
+          
+                const resultado = await resposta.json();
+            if (resposta.status === 400) {
+              // Exibir caixa de popup caso a nota seja menor que 70
+              const popupBox = document.querySelector('.popup-box-container');
+              popupBox.style.display = "flex";
+          
+              const notaTexto = document.getElementById('nota-texto');
+              notaTexto.textContent = `Sua nota: ${resultado.nota}`; // Assumindo que a resposta JSON tenha um campo 'nota'
+            } else {
+
+              if(resposta.status === 200) {
+
+                const popupAprovado = document.querySelector('.popup-box-aprovado-container');
+                popupAprovado.style.display = "flex";
+
+                const notaAprovadoTexto = document.getElementById('nota-aprovado-texto');
+                notaAprovadoTexto.textContent = `Sua nota: ${resultado.nota}`;
+              }
+            }
+            console.log(resultado); // Exemplo de como você pode lidar com a resposta
+            // Trate a resposta da API conforme necessário
+            // Exemplo de como você pode lidar com a resposta
+              }
+          </script>
+                      </div>
+              </body>
+              </html>

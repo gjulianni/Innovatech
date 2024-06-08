@@ -321,14 +321,14 @@ h3 {
   }
   
   .popup-box {
-    border: 5px solid #0BA3F9;
+    border: 5px solid #f70606;
     width: 500px; /* Aumenta a largura da caixa */
     padding: 100px; /* Ajusta o padding para dar mais espaço interno */
     background-color: #d3d3d3; /* Cor de fundo cinza claro */
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para dar destaque */
-    animation: expandFromCenter 0.5s forwards ease-out;
+    animation: expandFromCenter 0.6s forwards ease-out;
     transform: scale(0.1); /* Inicia pequeno */
     opacity: 0; /* Inicia invisível */
   }
@@ -339,7 +339,7 @@ h3 {
       opacity: 0; /* Inicia invisível */
     }
     70% {
-      transform: scale(1.1); /* Cresce um pouco mais que o tamanho normal */
+      transform: scale(1.2); /* Cresce um pouco mais que o tamanho normal */
       opacity: 1; /* Torna-se visível */
     }
     100% {
@@ -355,7 +355,7 @@ h3 {
     margin-top: 50px;   
   }
   
-  .popup-box #questoes-acertadas-texto {
+  .popup-box p {
     margin: 20px 0;
     font-size: 1.5rem; /* Aumenta o tamanho da fonte dos parágrafos */
   }
@@ -380,4 +380,64 @@ h3 {
   
   .popup-box #refazer-aval:hover {
     background-color: #46ccee; /* Cor do botão ao passar o mouse */
+  }
+
+
+  .popup-box-aprovado-container {
+
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Z-index alto para garantir que a caixa de diálogo esteja na frente de todo o conteúdo */
+    transition: opacity 0.3s ease;
+  }
+
+  .popup-box-aprovado {
+
+    border: 5px solid #15afec;
+    width: 500px; /* Aumenta a largura da caixa */
+    padding: 100px; /* Ajusta o padding para dar mais espaço interno */
+    background-color: #d3d3d3; /* Cor de fundo cinza claro */
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para dar destaque */
+    animation: expandFromCenter 0.6s forwards ease-out;
+    transform: scale(0.1); /* Inicia pequeno */
+    opacity: 0; /* Inicia invisível */
+  }
+
+  .popup-box-aprovado h1 {
+
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    
+  }
+
+  .popup-box-aprovado #obter-certificado {
+    margin-top: 90px;
+    padding: 30px 35px;
+    background-color: #058aac; /* Cor do botão azul claro */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  .popup-box-aprovado #obter-certificado:hover {
+
+    background-color: #49ccec; /* Cor do botão azul claro */
+  }
+
+  .popup-box-aprovado p {
+
+    font-size: 1.5rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
