@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../css/inicio.css">
   <link rel="icon" href="../src/images/cadastro-img-innova.png">
   <script src="../js/geral.js"></script>
+  <script src="../backend/servidor/src/controladores/questionario.js"></script>
  
  
 
@@ -27,6 +28,7 @@
 
 <body>
 
+
         <div class="main-inicio">
             
         <div class="top-bar">
@@ -45,7 +47,7 @@
             <div class="sidebar-links">
             <a href="../frontend/inicio.html">Home</a>
             <a href="../frontend/cursos.html">Curso</a>
-            <a href="../frontend/avaliacao.html">Avaliação</a>
+            <a href="../frontend/avaliacao.html" id="avaliacao-link">Avaliação</a>
             <a href="#">Certificação</a>
             <a href="../frontend/login.html" onclick="logout()">Sair</a>
         </div>
@@ -123,7 +125,6 @@
     <div class="footer">
       <p>&copy;2024 Innovatech Labs. Todos os direitos reservados.</p>
     </div>
-
 
 </body>
 

@@ -64,8 +64,9 @@ async function salvarQuestionario(req, res) {
     );
 
     if (resposta.rowCount > 0 && resposta.rows[0].nota > 0) {
-      return res.json({
+      return res.status(201).json({
         erro: `Você não pode responder o questionário novamente. Você já foi aprovado com nota ${resposta.rows[0].nota}.`,
+        nota: resposta.rows[0].nota,
       });
     } else {
       // Calcula a nota nas questões

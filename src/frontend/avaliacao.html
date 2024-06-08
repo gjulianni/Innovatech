@@ -87,6 +87,11 @@
                 document.getElementsByClassName("popup-box-aprovado-container")[0].style.display = "none";
               }
             </script>
+            <script>
+              function fecharBlockPopup() {
+                document.getElementsByClassName("popup-box-block-container")[0].style.display = "none";
+              }
+            </script>
 
             <div class="popup-box-aprovado-container">
               <div class="popup-box-aprovado">
@@ -94,6 +99,15 @@
                 <h1>Parabéns! Você foi aprovado!</h1>
                 <p id="nota-aprovado-texto">Sua nota: </p>
                 <a href="./certificacao.html"><button id="obter-certificado">Obter certificado</button></a>
+              </div>
+            </div>
+
+            <div class="popup-box-block-container">
+              <div class="popup-box-block">
+                <button class="popup-block-close-btn" onclick="fecharBlockPopup()" style="background-color: #d3d3d3; border: none; color: red; font-weight: 900; font-size: 2.5rem; cursor: pointer; position: absolute; top: 0; right: 0; margin-right: 5px;">X</button>
+                <h1>Você não pode responder este questionário</h1>
+                <p id="nota-block-texto"></p>
+                <a href="./certificacao.html"><button id="meu-certificado">Meu certificado</button></a>
               </div>
             </div>
 
@@ -193,6 +207,7 @@
                 });
           
                 const resultado = await resposta.json();
+                  
             if (resposta.status === 400) {
               // Exibir caixa de popup caso a nota seja menor que 70
               const popupBox = document.querySelector('.popup-box-container');
@@ -210,10 +225,19 @@
                 const notaAprovadoTexto = document.getElementById('nota-aprovado-texto');
                 notaAprovadoTexto.textContent = `Sua nota: ${resultado.nota}`;
               }
-            }
-            console.log(resultado); // Exemplo de como você pode lidar com a resposta
-            // Trate a resposta da API conforme necessário
-            // Exemplo de como você pode lidar com a resposta
+
+              else {
+                if(resposta.status === 201) {
+
+                  const popupBlock = document.querySelector('.popup-box-block-container');
+                popupBlock.style.display = "flex";
+
+                const notaBlockTexto = document.getElementById('nota-block-texto');
+                notaBlockTexto.textContent = `Parece que você já possui um questionário registrado com nota ${resultado.nota}, e não pode realizar a avaliação novamente.`;
+                }
+              }
+            } 
+            console.log(resultado); 
               }
           </script>
                       </div>
