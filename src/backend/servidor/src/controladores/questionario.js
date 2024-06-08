@@ -61,6 +61,7 @@ async function salvarQuestionario(req, res) {
      FROM tbquestionario
      WHERE idusuario = $1 AND nota >= 70`,
       [idusuario]
+      
     );
 
     if (resposta.rowCount > 0 && resposta.rows[0].nota > 0) {
@@ -113,6 +114,8 @@ async function salvarQuestionario(req, res) {
     }
   }
 }
+
+
 
 // Exporta as funções
 module.exports = { listarQuestionario, salvarQuestionario };

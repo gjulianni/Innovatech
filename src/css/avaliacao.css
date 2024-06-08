@@ -355,7 +355,7 @@ h3 {
     margin-top: 50px;   
   }
   
-  .popup-box p {
+  .popup-box #nao {
     margin: 20px 0;
     font-size: 1.5rem; /* Aumenta o tamanho da fonte dos parágrafos */
   }
@@ -492,9 +492,193 @@ h3 {
     width: 80%;
   }
 
+  .popup-box-block #home{
 
+    font-size: 3rem;
+    margin-top: 10px;
+    margin-bottom: 0;
+    margin-right: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #0b395f;
+    cursor: pointer;
+  }
+
+  .popup-box-block #home:hover {
+
+    color: #021422;
+  }
 
   .popup-box-block #meu-certificado:hover {
 
     background-color: #49ccec; /* Cor do botão azul claro */
+  }
+
+  @media only screen and (max-width: 600px) {
+
+    .text-area {
+
+      height: 150px;
+    }
+
+    .text-area p {
+
+      font-size: 1.1rem;
+    }
+
+    .questoes-container {
+
+    margin-top: 50px;
+    padding: 80px;
+    max-width: 280px;
+    height: 350px;
+    }
+
+    .questoes-container h3 {
+
+      display: none;
+    }
+
+    .options input {
+
+      font-size: 1.5rem;
+    }
+
+    .setinhas h1 {
+
+      color: red;
+    }
+
+    .btn-conclusao {
+
+      margin-right: 10%;
+    }
+  }
+
+  @media only screen and (max-width: 375px) {
+
+    .top-bar h1 {
+
+      display: none;
+    }
+
+    .questoes-container {
+
+      width: 170px;
+      height: 250px;
+      margin-top: 80px;
+      
+    }
+
+    .text-area {
+
+      width: 150px;
+      position: absolute;
+      right: 0;
+      margin-right: 13%;
+    }
+
+    .text-area p {
+
+      font-size: 1rem;
+    }
+
+    .options label {
+
+      font-size: 1rem;
+    }
+
+    .setinhas h1 {
+
+      font-size: 2rem;
+    }
+
+    .questao h2 {
+
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 30px;
+    }
+
+    .popup-box-block {
+
+      width: 150px;
+      height: 150px;
+    }
+
+    .popup-box-block h1 {
+
+      font-size: 1.5rem;
+    }
+    .popup-box-block p {
+
+      display: none;
+    } 
+
+    .popup-box-block #meu-certificado {
+
+      
+      padding: 10px 10px;
+      position: absolute;
+      top: 55%;
+      right: 10%;
+      
+    }
+
+    .popup-box {
+
+      width: 150px;
+      height: 150px;
+
+    }
+
+    .popup-box h1 {
+
+      font-size: 2rem;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    .popup-box #nota-texto {
+
+      margin-top: 70px;
+
+    }
+
+    .popup-box #nao {
+      display: none;
+    }
+
+    .popup-box-aprovado {
+
+      width: 150px;
+      height: 150px;
+    }
+
+    .popup-box h1 {
+
+      font-size: 2rem;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    .popup-box #nota-aprovado-texto {
+
+      margin-top: 70px;
+    }
+
+  }
+  @media only screen and (max-width: 500px) {
+
+    .top-bar h1 {
+      display: none;
+    }
+
   }
