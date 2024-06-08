@@ -104,7 +104,7 @@
 
             <div class="popup-box-block-container">
               <div class="popup-box-block">
-                <button class="popup-block-close-btn" onclick="fecharBlockPopup()" style="background-color: #d3d3d3; border: none; color: red; font-weight: 900; font-size: 2.5rem; cursor: pointer; position: absolute; top: 0; right: 0; margin-right: 5px;">X</button>
+                <a href="./inicio.html"><p id="home">&#8592; Home</p></a>
                 <h1>Você não pode responder este questionário</h1>
                 <p id="nota-block-texto"></p>
                 <a href="./certificacao.html"><button id="meu-certificado">Meu certificado</button></a>
@@ -146,7 +146,7 @@
            let questoes = [];
           let indiceQuestaoAtual = 0;
           let respostas = [];
-          
+
           document.addEventListener("DOMContentLoaded", async () => {
             const resposta = await fetch('http://localhost:3030/questao'); // Acessa o servidor backend
             questoes = await resposta.json();
@@ -216,7 +216,7 @@
               notaTexto.textContent = `Sua nota: ${resultado.nota}`; // Assumindo que a resposta JSON tenha um campo 'nota'
             } else {
 
-              if(resposta.status === 200) {
+              if(resposta.status === 202) {
 
                 const popupAprovado = document.querySelector('.popup-box-aprovado-container');
                 popupAprovado.style.display = "flex";
@@ -230,7 +230,7 @@
 
                   const popupBlock = document.querySelector('.popup-box-block-container');
                 popupBlock.style.display = "flex";
-
+                
                 const notaBlockTexto = document.getElementById('nota-block-texto');
                 notaBlockTexto.textContent = `Parece que você já possui um questionário registrado com nota ${resultado.nota}, e não pode realizar a avaliação novamente.`;
                 }

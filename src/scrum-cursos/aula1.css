@@ -7,6 +7,8 @@ body {
     
 }
 
+
+
 .top-bar {
 
     width: 100%;
@@ -28,6 +30,42 @@ body {
     font-weight: 200;
     margin-left: 25px;
     font-size: 2rem;
+}
+
+.top-bar #prox {
+
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 3%;
+    font-size: 5rem;
+    color: #0BA3F9;
+    cursor: pointer;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.top-bar #prox:hover {
+
+    color: #0f528a;
+}
+
+.top-bar #prev {
+
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: 10%;
+    font-size: 5rem;
+    color: #0BA3F9;
+    cursor: pointer;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.top-bar #prev:hover {
+
+    color: #0f528a;
 }
 
 .top-bar #greeting {
@@ -101,6 +139,18 @@ body {
     font-weight: 300;
     
 
+}
+
+.sidenav a:last-child {
+
+    color: red;
+    position: absolute;
+    margin-top: 240%;
+}
+
+.sidenav a:last-child:hover {
+
+    color: rgb(75, 12, 4);
 }
 
 .sidebar-links {
