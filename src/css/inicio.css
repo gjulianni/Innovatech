@@ -394,15 +394,17 @@ button {
 @media only screen and (max-width:850px) {
 
     .website-development {
-
         display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
+        width: 180%;
+        overflow: hidden;
+        padding: 20px;
         
     }
 
+    body {
+
+        overflow-x: hidden;
+    }
     .top-bar #search {
 
         display: none;
@@ -436,16 +438,17 @@ button {
     }
 
     .left-content {
-
-        width: 100%; 
-        flex: none;
+        width: 100vw;
+        padding: 20px;
+        box-sizing: border-box;
     }
 
     .website-mid-text {
-
+        width: 100vw;
+        margin: 0 auto;
+        text-align: justify;
+        padding: 20px;
         
-        width: 100%;
-        flex: none  ;
     }
 
     .img-scrum {
@@ -467,18 +470,14 @@ button {
 
     .website-mid-text > h1:nth-child(1) {
 
-        white-space: nowrap;
-        font-size: 3.5rem;
+        font-size: 3rem;
     }
 
-    .website-mid-text > h1:nth-child(2) {
+    .website-mid-text > h1:nth-of-type(2) {
 
-        white-space: nowrap;
-        font-size: 3.5rem;
-        
+        font-size: 3rem;
+        margin-top: 300px;
     }
-
-
     .website-mid-text #midtext-desc {
 
         
@@ -495,6 +494,42 @@ button {
 
     .right-content{
 
+        display: flex;
+    }
+
+    .right-content .img-scrum {
+
+        position: absolute;
+        top: 125%;
+        left: 0;
+        margin-left: 55px;
+        width: 700px;
+    }
+
+    .slides {
+
         display: none;
     }
+
+    
+    
+    
+}
+
+@media only screen and (max-width: 768px) {
+
+    .right-content .img-scrum {
+
+        position: absolute;
+        top: 145%;
+        left: 0;
+        margin-left: 55px;
+        width: 700px;
+    }
+
+    .text-col > h1 {
+
+        font-size: 1.9rem;
+    }
+
 }
