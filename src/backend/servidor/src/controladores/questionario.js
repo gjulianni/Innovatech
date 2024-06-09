@@ -115,7 +115,33 @@ async function salvarQuestionario(req, res) {
   }
 }
 
+async function verificarAprovacao(idusuario) {
+
+  if (!idusuario) {
+    throw new Error("Forneça o ID do usuário.");
+  }
+
+  let resposta = await pool.query(
+    `SELECT nota::float
+     FROM tbquestionario
+     WHERE idusuario = $1 AND nota >= 70`,
+    [idusuario]
+  );
+
+  if (resposta.rowCount > 0) {
+    return {
+      aprovado: true,
+      nota: resposta.rows[0].nota
+    };
+  } else {
+    return {
+      aprovado: false,
+      nota: null
+    };
+  }
+}
+
 
 
 // Exporta as funções
-module.exports = { listarQuestionario, salvarQuestionario };
+module.exports = { listarQuestionario, salvarQuestionario, verificarAprovacao };

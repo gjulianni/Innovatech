@@ -8,7 +8,7 @@ const { cadastrarUsuario, login } = require("./controladores/usuario");
 // Importa as funções exportadas do módulo questao
 const { listarQuestao } = require("./controladores/questao");
 // Importa as funções exportadas do módulo questionario
-const { salvarQuestionario, listarQuestionario } = require("./controladores/questionario");
+const { salvarQuestionario, listarQuestionario, verificarAprovacao } = require("./controladores/questionario");
 // Importa o pacote dotenv e coloca na variável dotenv
 const dotenv = require("dotenv");
 // Carregar as variáveis de ambiente do arquivo .env no objeto process.env do Node
@@ -42,6 +42,17 @@ app.post("/questionario", salvarQuestionario);
 
 // Rota para resgatar o questionário
 app.get("/questionario", listarQuestionario);
+
+app.post("/verificar-aprovacao", async (req, res) => {
+    const { idusuario } = req.body;
+
+    try {
+        const resultado = await verificarAprovacao(idusuario);
+        res.json(resultado);
+    } catch (error) {
+        res.status(401).json({ erro: error.message });
+    }
+});
 
 app.use(function(req,res){
     res.json({erro:"Rota desconhecida"});
