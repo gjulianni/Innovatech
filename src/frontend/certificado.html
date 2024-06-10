@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Innovatech</title>
+  <link rel="stylesheet" href="../css/inicio.css">
+  <link rel="stylesheet" href="../css/certificado.css">
+  <link rel="icon" href="../src/images/cadastro-img-innova.png">
+  <script src="../js/geral.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="main-inicio">
+    <div class="top-bar">
+      <img class="innova-logo" src="../images/cadastro-img-innova.png" alt="Logo Innovatech">
+      <h1>Innovatech</h1>
+      <h2 id="greeting"></h2>
+      <script src="../js/greetings.js"></script>
+      <script src="../js/index.js"></script>
+      <script src="../js/saudacao.js"></script>
+    </div>
+    <span class="btn-sidebar" style="font-size:50px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    <div id="sidebar" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="sidebar-links">
+        <a href="../frontend/inicio.html">Home</a>
+        <a href="../frontend/cursos.html">Curso</a>
+        <a href="../frontend/avaliacao.html">Avaliação</a>
+        <a href="#">Certificação</a>
+        <a href="../frontend/login.html" onclick="logout()">Sair</a>
+      </div>
+    </div>
+    <script>
+      function openNav() {
+        document.getElementById("sidebar").style.width = "250px";
+      }
+      function closeNav() {
+        document.getElementById("sidebar").style.width = "0";
+      }
+    </script>
+    <div class="text-obter">
+    <h1>Obtenha seu Certificado!</h1>
+  </div>
+    <section class="certification">
+      <div class="evaluation-info">
+        <div class="evaluation-details">
+          <div class="info-box">
+            <p>Nota da sua última avaliação: <span id="last-score">N/A</span></p>
+          </div>
+          <div class="info-box">
+            <p>Sua porcentagem de acertos: <span id="correct-percentage">#%</span></p>
+          </div>
+          <div class="info-box">
+            <div class="evaluation-history">
+              <h2>Seu histórico de avaliações:</h2>
+              <p id="evaluation-message">Você ainda não alcançou a nota mínima para a liberação da certificação!</p>
+              <p>Se esforce para alcançar uma nota &gt;70%</p>
+            </div>
+          </div>
+        </div>
+        <div class="certificate-preview">
+          <div class="preview">
+            <img src="../images/certificado.png" alt="Preview do Certificado">
+            <div class="not-enough-score">
+            <h5>Sua nota ainda não é suficiente para desbloquear o certificado!</h5>
+          </div>
+        </div>
+          <button class="button-disabled">Nota insuficiente</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="footer">
+    <p>&copy;2024 Innovatech Labs. Todos os direitos reservados.</p>
+  </div>
+</body>
+</html>

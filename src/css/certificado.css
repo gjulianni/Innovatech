@@ -1,0 +1,248 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+}
+
+.top-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background: #D9D9D9;
+  height: 100px;
+  align-items: center;
+  box-shadow: 1px 2px 2px 1px #d8cccc;
+  position: relative;
+}
+
+.top-bar > h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
+  margin-left: 25px;
+  font-size: 2rem;
+}
+
+.top-bar #greeting {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  position: absolute;
+  right: 0;
+  margin-right: 3%;
+  font-size: 1.7rem;
+}
+
+.top-bar .innova-logo {
+  margin-left: 45px;
+}
+
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  margin-top: -28px;
+  background-color: #0b395f;
+  overflow-x: hidden; 
+  padding-top: 30px; 
+  transition: 0.5s;
+  align-items: center;
+  justify-content: end;
+  display: flex;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #f1f1f1;
+  display: block;
+  transition: 0.3s;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.sidenav a:last-child {
+  color: red;
+  position: absolute;
+  margin-top: 240%;
+}
+
+.sidenav a:last-child:hover {
+  color: rgb(75, 12, 4);
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.sidenav a:hover {
+  color: #818181;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  font-size: 4rem;
+  margin: auto;
+}
+
+.btn-sidebar {
+  margin-left: 20px;
+  position: absolute;
+  top: 0;
+  transform: translateY(150%);
+  left: 0;
+}
+
+.text-obter > h1 {
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
+  color: black;
+  position: absolute;
+  margin: 0;
+  transform: translateY(-130%); 
+  width: 30%; 
+  font-size: 2.5vw;
+  margin-bottom: 0px;
+  
+}
+
+.text-obter {
+  padding: 70px;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+.certification {
+  padding: 2%;
+  margin-left: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.evaluation-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.evaluation-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info-box {
+  background: #D9D9D9;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 2px 2px 1px #d8cccc;
+}
+
+.info-box p {
+  font-size: 18px;
+  margin: 0px;
+}
+
+.evaluation-history {
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.certificate-preview {
+  flex: 1;
+  text-align: center;
+  position: relative; 
+}
+
+.preview img {
+  max-width: 60%;
+  height: auto;
+  filter: blur(5px);
+  margin: auto;
+}
+
+.not-enough-score {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+  color: red;
+}
+
+.button-disabled,
+.button-enabled {
+  padding: 10px 20px;
+  margin-top: 150px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: not-allowed;
+  display: flex;
+}
+
+.button-disabled {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+.button-disabled:hover {
+  background-color: #c9302c;
+}
+
+.button-enabled {
+  background-color: #5cb85c;
+  color: #fff;
+  cursor: pointer;
+}
+
+.button-enabled:hover {
+  background-color: #4cae4c;
+}
+
+.footer {
+  background-color: #0b395f;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100vw;
+}
+
+@media only screen and (max-width: 850px) {
+  .evaluation-info {
+    flex-direction: column;
+  }
+
+  .certificate-preview {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (min-width: 851px) and (max-width: 1280px) {
+  .evaluation-info {
+    gap: 10px;
+  }
+}
+
+@media only screen and (min-width: 1281px) {
+  .evaluation-info {
+    gap: 20px;
+  }
+}
