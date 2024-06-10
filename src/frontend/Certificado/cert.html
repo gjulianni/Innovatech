@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificado</title>
+    <link rel="stylesheet" href="cert.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+    </style>
+</head>
+
+<body>
+
+    <div id="DivNome">
+        <p id="PNome"></p>
+    </div> 
+    <div id="DivData">
+        <p id="PData"></p>        
+    </div>
+    <div id="DivScore">
+        <p id="PScore"></p>
+    </div>
+    
+    <script>
+        const nome = document.querySelectorAll('p');
+        nome[0].innerText = "Nome de teste";
+
+        const data = document.querySelectorAll('p');
+        data[1].innerText = "dd/mm/aaaa";
+
+        const score = document.querySelectorAll('p');
+        score[2].innerText = "###";
+    </script>
+
+</body>
+</html>
