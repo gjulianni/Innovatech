@@ -1,5 +1,6 @@
 const { pool } = require("./bd");
 
+
 async function listarQuestionario(req, res) {
   const { idusuario } = req.body;
 
@@ -49,6 +50,9 @@ Padrão de requisição para cadastrar um questionário
   ]
 }
 */
+
+
+
 async function salvarQuestionario(req, res) {
   const { idusuario, questoes } = req.body;
 
@@ -124,26 +128,28 @@ async function verificarAprovacao(idusuario) {
   }
 
   let resposta = await pool.query(
-    `SELECT nota::float
+    `SELECT nota::float, datahorario
      FROM tbquestionario
-     WHERE idusuario = $1 AND nota >= 70`,
+     WHERE idusuario = $1 AND nota >= 70
+     ORDER BY datahorario DESC
+     LIMIT 1`,  // Obtém apenas o questionário mais recente com nota >= 70
     [idusuario]
   );
 
   if (resposta.rowCount > 0) {
     return {
       aprovado: true,
-      nota: resposta.rows[0].nota
+      nota: resposta.rows[0].nota,
+      datahorario: resposta.rows[0].datahorario
     };
   } else {
     return {
       aprovado: false,
-      nota: null
+      nota: null,
+      datahorario: null
     };
   }
 }
-
-
 
 // Exporta as funções
 module.exports = { listarQuestionario, salvarQuestionario, verificarAprovacao };

@@ -15,6 +15,7 @@
   <script src="../backend/servidor/src/controladores/questionario.js"></script>
   <script src="../backend/servidor/src/controladores/questao.js"></script>
   <script src="../backend/servidor/src/controladores/calculo.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
   <div class="main-inicio">
@@ -83,48 +84,24 @@
       notaCertificado.textContent = `${nome}`;
       
       const dataAvaliacao = document.getElementById('data-avaliacao');
-      dataAvaliacao.textContent = `${data.datahorario}`;
-
+      // Formatação da data caso necessário
+      const dataFormatada = new Date(data.datahorario).toLocaleString('pt-BR', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+      dataAvaliacao.textContent = `${dataFormatada}`;
+      
       const notaAvaliacao = document.getElementById('nota-avaliacao');
       notaAvaliacao.textContent = `${data.nota}`;
-     
-    } 
-  }
 
-  async function fetchQuestionario(idusuario) {
-            try {
-                const response = await fetch('http://localhost:3030/questionario', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ idusuario })
-                });
-
-                const data = await response.json();
-
-                if (data.erro) {
-                    document.getElementById('data-avaliacao').innerText = data.erro;
-                } else {
-                    const questionario = data.questionario;
-                    const questoes = data.questoes;
-                    document.getElementById('data-avaliacao').innerText = `
-                        Questionário ID: ${questionario.idquestionario}
-                        Data/Hora: ${new Date(questionario.datahorario).toLocaleString()}
-                        Nota: ${questionario.nota}
-                        Questões: ${questoes.map(q => `
-                            Enunciado: ${q.enunciado}
-                            Respondido: ${q.respondido}
-                            Correto: ${q.correto}
-                        `).join('\n')}
-                    `;
-                }
-            } catch (error) {
-                document.getElementById('data-avaliacao').innerText = 'Erro ao buscar questionário: ' + error.message;
-            }
-        }
-
-          
+  } 
+}
+  
+      
 
   document.addEventListener("DOMContentLoaded", async () => {
     const usuarioLogadoJSON = localStorage.getItem('usuario');
@@ -137,22 +114,59 @@
       console.log("jdfgbgffdigkdf")
     }
   });
+
+  function printCertificate() {
+  // Hide download button while printing
+  const downloadButton = document.querySelector('.download-certificado');
+  downloadButton.style.display = 'none';
+  const fecharButton = document.querySelector('.fechar-container');
+  fecharButton.style.display = "none";
+
+  // Print the certificate
+  window.print();
+
+  // Show download button again after printing
+  downloadButton.style.display = 'block';
+  fecharButton.style.display = 'block';
+}
 </script>
 
 
+    <script>
+      function fecharCertificado() {
+
+        const certificadoContainer = document.querySelector('.certificado-container');
+        certificadoContainer.style.display = "none";
+      }
+    </script>
+
+    <script>
+      function abrirCertificado() {
+
+        const containerAberto = document.querySelector('.certificado-container');
+        containerAberto.style.display = "flex";
+      }
+    </script>
+
     <div class="certificado-container">
+      <button class="fechar-container" onclick="fecharCertificado()">X</button>
       <div class="certificado-box">
-        <img src="../images/cert-alternative.png">
+        <img id="img-certificado" src="../images/cert-alternative.png">
+        <img id="assinatura" src="../images/assinatura.png">
         <div class="textos-certificado">
         <h1>Certificado</h1>
         <h2>Certificamos que</h2>
         <span id="nome-usuario"></span>
         <p id="estoria">Concluiu o curso Scrum, ministrado pela empresa Innovatech, realizado no dia <span id="data-avaliacao"></span>. O participante obteve um score de <span id="nota-avaliacao"></span> na avaliação do curso.</p>
+        <div class="botoes-certificado">
+          <button class="download-certificado" onclick="printCertificate()">Download</button>
+        </div>
       </div>
-      <button class="download-certificado">Download</button>
-      <button class="imprimir-certificado">Imprimir</button>
       </div>
     </div>
+
+
+  
     <div class="text-obter">
     <h1>Obtenha seu Certificado!</h1>
   </div>
@@ -162,7 +176,6 @@
           <div class="info-box">
             <p>Nota da sua última avaliação: <span id="last-score">N/A</span></p>
           </div>
-          
           <div class="info-box">
             <div class="evaluation-history">
               <h2>Seu histórico de avaliações:</h2>
@@ -178,7 +191,7 @@
             <h5>Sua nota ainda não é suficiente para desbloquear o certificado!</h5>
           </div>
           <button class="button-disabled">Nota insuficiente</button>
-          <button class="button-enabled">Obter certificado</button>
+          <button class="button-enabled" onclick="abrirCertificado()">Obter certificado</button>
         </div>
           
         </div>      
