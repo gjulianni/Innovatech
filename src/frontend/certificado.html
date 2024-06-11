@@ -75,10 +75,56 @@
       const lastScore = document.getElementById('last-score');
       lastScore.textContent = `${data.nota}`;
 
-     
+      const notaCertificado = document.getElementById('nome-usuario');
+      const nomeUsuarioJSON = localStorage.getItem('usuario');
+      const nomeUsuario = JSON.parse(nomeUsuarioJSON);
+      const nome = nomeUsuario.nome;
+
+      notaCertificado.textContent = `${nome}`;
+      
+      const dataAvaliacao = document.getElementById('data-avaliacao');
+      dataAvaliacao.textContent = `${data.datahorario}`;
+
+      const notaAvaliacao = document.getElementById('nota-avaliacao');
+      notaAvaliacao.textContent = `${data.nota}`;
      
     } 
   }
+
+  async function fetchQuestionario(idusuario) {
+            try {
+                const response = await fetch('http://localhost:3030/questionario', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ idusuario })
+                });
+
+                const data = await response.json();
+
+                if (data.erro) {
+                    document.getElementById('data-avaliacao').innerText = data.erro;
+                } else {
+                    const questionario = data.questionario;
+                    const questoes = data.questoes;
+                    document.getElementById('data-avaliacao').innerText = `
+                        Questionário ID: ${questionario.idquestionario}
+                        Data/Hora: ${new Date(questionario.datahorario).toLocaleString()}
+                        Nota: ${questionario.nota}
+                        Questões: ${questoes.map(q => `
+                            Enunciado: ${q.enunciado}
+                            Respondido: ${q.respondido}
+                            Correto: ${q.correto}
+                        `).join('\n')}
+                    `;
+                }
+            } catch (error) {
+                document.getElementById('data-avaliacao').innerText = 'Erro ao buscar questionário: ' + error.message;
+            }
+        }
+
+          
 
   document.addEventListener("DOMContentLoaded", async () => {
     const usuarioLogadoJSON = localStorage.getItem('usuario');
@@ -94,6 +140,19 @@
 </script>
 
 
+    <div class="certificado-container">
+      <div class="certificado-box">
+        <img src="../images/cert-alternative.png">
+        <div class="textos-certificado">
+        <h1>Certificado</h1>
+        <h2>Certificamos que</h2>
+        <span id="nome-usuario"></span>
+        <p id="estoria">Concluiu o curso Scrum, ministrado pela empresa Innovatech, realizado no dia <span id="data-avaliacao"></span>. O participante obteve um score de <span id="nota-avaliacao"></span> na avaliação do curso.</p>
+      </div>
+      <button class="download-certificado">Download</button>
+      <button class="imprimir-certificado">Imprimir</button>
+      </div>
+    </div>
     <div class="text-obter">
     <h1>Obtenha seu Certificado!</h1>
   </div>

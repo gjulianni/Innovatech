@@ -251,6 +251,131 @@ html, body {
   bottom: 0;
   width: 100%;
 }
+
+.certificado-container {
+
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Z-index alto para garantir que a caixa de diálogo esteja na frente de todo o conteúdo */
+    transition: opacity 0.3s ease;
+}
+
+.certificado-box img {
+
+  width: 65vw;
+  height: 80vh;
+}
+
+@keyframes expandFromCenter {
+  0% {
+    transform: scale(0.1); /* Começa pequeno */
+    opacity: 0; /* Inicia invisível */
+  }
+  70% {
+    transform: scale(1.2); /* Cresce um pouco mais que o tamanho normal */
+    opacity: 1; /* Torna-se visível */
+  }
+  100% {
+    transform: scale(1); /* Tamanho normal */
+    opacity: 1; /* Visível totalmente */
+  }
+}
+
+.certificado-box {
+
+    border: 5px solid #099ee2;
+    width: 65vw; /* Aumenta a largura da caixa */
+    height: 80vh;
+    background-color: #D9D9D9;
+    padding-bottom: 100px; /* Ajusta o padding-bottom para dar mais espaço interno */
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para dar destaque */
+    animation: expandFromCenter 0.6s forwards ease-out;
+    transform: scale(0.1); /* Inicia pequeno */
+    opacity: 0; /* Inicia invisível */
+}
+
+.textos-certificado {
+
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.textos-certificado > h1 {
+
+  margin-top: 4%;
+  text-transform: uppercase;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 300;
+  font-size: 4rem;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%);
+  
+}
+
+#nome-usuario {
+  font-size: 3rem;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  display: inline-block;
+}
+
+#nome-usuario::after {
+  content: "";
+  display: block;
+  width: 200%; /* Ajuste essa largura conforme necessário */
+  height: 2px; /* Espessura do sublinhado */
+  background-color: black; /* Cor do sublinhado */
+  margin: 6px auto 0; /* Espaçamento entre o texto e o sublinhado */
+  transform: translateX(-25%);
+  
+}
+
+.textos-certificado h2 {
+
+  position: absolute;
+  top: 0;
+  margin-top: 12%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.textos-certificado p {
+
+  font-size: 2rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  font-weight: 300;
+
+
+}
+
+.download-certificado {
+
+  position: absolute;
+  bottom: 0;
+}
+
 @media only screen and (max-width: 850px) {
   .evaluation-info {
     flex-direction: column;
@@ -272,3 +397,5 @@ html, body {
     gap: 20px;
   }
 }
+
+

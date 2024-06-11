@@ -1,36 +1,38 @@
 const { pool } = require("./bd");
 
 async function listarQuestionario(req, res) {
-  // obtém o idusuario passado pelo body da requisição
   const { idusuario } = req.body;
 
   if (!idusuario) {
     return res.json({ erro: "Forneça os seus dados." });
   } else {
-    // Verifica se o usuário já tem algum questionário salvo
-    let resposta = await pool.query(
-      `SELECT idquestionario, datahorario, nota::float
-      FROM tbquestionario
-      WHERE idusuario = $1`,
-      [idusuario]
-    );
-
-    if (resposta.rowCount > 0) {
-      const questionario = resposta.rows[0];
-
-      // retorna 4 questões aleatórias
-      resposta = await pool.query(
-        `SELECT b.enunciado, a.resposta as "respondido", b.resposta as "correto" 
-        FROM tbquestao_por_questionario as a, tbquestao as b
-        WHERE a.idquestionario = $1
-            AND a.idquestao = b.idquestao`,
-        [questionario.idquestionario]
+    try {
+      let resposta = await pool.query(
+        `SELECT idquestionario, datahorario, nota::float
+         FROM tbquestionario
+         WHERE idusuario = $1`,
+        [idusuario]
       );
-      return res.json({ questionario, questoes: resposta.rows });
-    } else {
-      return res.json({
-        erro: "Você não tem questionário respondido com nota para ser aprovado.",
-      });
+
+      if (resposta.rowCount > 0) {
+        const questionario = resposta.rows[0];
+
+        resposta = await pool.query(
+          `SELECT b.enunciado, a.resposta as "respondido", b.resposta as "correto" 
+           FROM tbquestao_por_questionario as a
+           JOIN tbquestao as b ON a.idquestao = b.idquestao
+           WHERE a.idquestionario = $1`,
+          [questionario.idquestionario]
+        );
+
+        return res.json({ questionario, questoes: resposta.rows });
+      } else {
+        return res.json({
+          erro: "Você não tem questionário respondido com nota para ser aprovado.",
+        });
+      }
+    } catch (erro) {
+      return res.status(500).json({ erro: "Erro ao listar questionário.", detalhes: erro.message });
     }
   }
 }
