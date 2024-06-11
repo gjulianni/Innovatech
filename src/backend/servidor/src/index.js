@@ -54,6 +54,8 @@ app.post("/verificar-aprovacao", async (req, res) => {
     }
 });
 
+
+
 app.use(function(req,res){
     res.json({erro:"Rota desconhecida"});
 });

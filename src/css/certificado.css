@@ -1,9 +1,12 @@
-body {
+html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  
 }
+
 
 .top-bar {
   width: 100%;
@@ -107,26 +110,24 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: bolder;
   color: black;
-  position: absolute;
-  margin: 0;
-  transform: translateY(-130%); 
-  width: 30%; 
-  font-size: 2.5vw;
-  margin-bottom: 0px;
+  
   
 }
 
 .text-obter {
-  padding: 70px;
-  margin-left: 20px;
+  padding: 50px;
+  margin-left: 5%;
   font-size: 20px;
 }
 
 .certification {
-  padding: 2%;
+  padding: 3%;
   margin-left: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 0;
+  
+  
 }
 
 .evaluation-info {
@@ -140,6 +141,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+
 }
 
 .info-box {
@@ -167,6 +169,7 @@ body {
   flex: 1;
   text-align: center;
   position: relative; 
+  
 }
 
 .preview img {
@@ -175,6 +178,8 @@ body {
   filter: blur(5px);
   margin: auto;
 }
+
+
 
 .not-enough-score {
   position: absolute;
@@ -186,14 +191,18 @@ body {
   color: red;
 }
 
-.button-disabled,
-.button-enabled {
-  padding: 10px 20px;
-  margin-top: 150px;
+.button-disabled
+ {
+  padding: 20px 25px;
   border-radius: 5px;
   font-size: 16px;
-  cursor: not-allowed;
-  display: flex;
+  cursor: pointer;
+  display: none;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  margin-top: 5%;
+  transform: translate(-50%, -50%);
 }
 
 .button-disabled {
@@ -206,25 +215,42 @@ body {
 }
 
 .button-enabled {
-  background-color: #5cb85c;
+
+  padding: 20px 45px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  display: none;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  margin-top: 7%;
+  transform: translate(-50%, -50%);
+  margin-bottom: 0;
+  
+
+}
+
+.button-enabled {
+  background-color: #099ee2;
   color: #fff;
   cursor: pointer;
 }
 
 .button-enabled:hover {
-  background-color: #4cae4c;
+  background-color: #077aaf;
 }
 
 .footer {
+
   background-color: #0b395f;
   color: white;
   padding: 15px;
   text-align: center;
-  position: relative;
+  position: fixed;
   bottom: 0;
-  width: 100vw;
+  width: 100%;
 }
-
 @media only screen and (max-width: 850px) {
   .evaluation-info {
     flex-direction: column;
