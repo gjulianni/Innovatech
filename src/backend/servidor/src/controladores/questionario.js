@@ -143,14 +143,16 @@ async function verificarAprovacao(idusuario) {
       // Agora, obtenha as respostas associadas a esse questionário
       console.log('ID do Questionário:', idQuestionario);
       const respostasQuestoes = await pool.query(
-        `SELECT idquestao, resposta
-         FROM tbquestao_por_questionario
-         WHERE idquestionario = $1`,
-        [idQuestionario]
+        `SELECT q.enunciado, qq.resposta
+       FROM tbquestao_por_questionario qq
+       JOIN tbquestao q ON qq.idquestao = q.idquestao
+       WHERE qq.idquestionario = $1`,
+      [idQuestionario]
       );
 
         
       const respostasApenas = respostasQuestoes.rows.map(item => ({
+        enunciado: item.enunciado,
         resposta: item.resposta
     }));
 

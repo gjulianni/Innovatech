@@ -154,23 +154,45 @@ html, body {
   margin: 0px;
 }
 
+.questao {
+  font-weight: bold;
+}
+
+.resposta {
+  font-weight: normal;
+}
+
 .evaluation-history {
   margin-top: 20px;
   background-color: #f9f9f9;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ddd;
-  text-align: center;
-  display: flex;
-  height: 500px;
-  justify-content: center;
-  align-items: center;
-  
-  
-  
+  text-align: left;
+  display: block;
+  max-height: 500px; /* Defina a altura máxima da box */
+  overflow-y: auto; /* Adicione uma barra de rolagem vertical quando necessário */
+  padding: 10px;
   
 }
 
+.evaluation-history::-webkit-scrollbar-track  {
+    background: #fff;
+}
+
+.evaluation-history::-webkit-scrollbar-thumb {
+  background: rgb(7, 148, 241); /* Cor do thumb */
+ 
+}
+
+.evaluation-history::-webkit-scrollbar {
+
+  width: 12px;
+}
+
+.evaluation-history::-webkit-scrollbar-thumb:hover {
+  background: rgb(7, 77, 124); /* Cor do thumb ao ser ativado */
+}
 .evaluation-history h2 {
 
   text-align: center;
@@ -179,21 +201,22 @@ html, body {
 
 .questoestexto {
 
-  text-align: center;
+
   font-weight: 700;
-  flex: 1;
+  display: none;
+ 
 }
 
 .evaluation-message {
 
-  flex: 1;
-  text-align: center;
+  
+  text-align: left;
   
 }
 
 .evaluation-history p {
 
-  display: block;
+  margin-bottom: 10px;
 }
 
 .certificate-preview {

@@ -94,17 +94,23 @@
       const notaAvaliacao = document.getElementById('nota-avaliacao');
       notaAvaliacao.textContent = `${data.nota}`;
 
-      const historicoTexto = document.querySelector('.evaluation-message'); // Corrigido
+      const historicoTexto = document.querySelector('.evaluation-message');
       if(historicoTexto) {
         console.log("Pegou")
       }
-      historicoTexto.textContent = ''; // Limpa o conteúdo anterior
-      data.respostasQuestionario.forEach(item => {
-  const resposta = item.resposta ? 'Verdadeiro' : 'Falso';
-  const respostaElemento = document.createElement('p'); // Cria um novo elemento p
-  respostaElemento.textContent = `Sua resposta: ${resposta} `; // Define o texto do elemento
-  historicoTexto.appendChild(respostaElemento); // Adiciona o elemento à div
-});
+      historicoTexto.innerHTML = ''; // Limpa o conteúdo anterior
+
+      data.respostasQuestionario.forEach((item, index) => {
+    const resposta = item.resposta ? 'Verdadeiro' : 'Falso';
+    const questaoNumero = `Questão ${index + 1}`;
+    const respostaElemento = document.createElement('p'); // Cria um novo elemento p
+
+    // Define o HTML do elemento com quebra de linha e classes CSS
+    respostaElemento.innerHTML = `<strong>${questaoNumero} - ${item.enunciado}</strong><br>Sua resposta: ${resposta}<br>`;
+    
+    historicoTexto.appendChild(respostaElemento); // Adiciona o elemento à div
+  });
+
       // Faça o que precisar com respostasQuestionario
     }
   });
