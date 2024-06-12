@@ -48,21 +48,18 @@
 
 <script>
   async function verificarAprovacao(idusuario) {
-    const response = await fetch('http://localhost:3030/verificar-aprovacao', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ idusuario })
-    });
+  const response = await fetch('http://localhost:3030/verificar-aprovacao', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ idusuario })
+  });
 
-    const data = await response.json();
+  response.json().then(data => {
     console.log('Dados da resposta:', data);
 
     if (data.aprovado) {
-      console.log('Usuário aprovado.');
-
-
       const btnObterCertificado = document.querySelector('.certificate-preview .button-enabled');
       btnObterCertificado.style.display = "flex";
       const btnNotaInsuficiente = document.querySelector('.certificate-preview .button-disabled');
@@ -84,21 +81,33 @@
       notaCertificado.textContent = `${nome}`;
       
       const dataAvaliacao = document.getElementById('data-avaliacao');
-      // Formatação da data caso necessário
       const dataFormatada = new Date(data.datahorario).toLocaleString('pt-BR', {
         year: 'numeric',
         month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
+        day: '2-digit'    
       });
       dataAvaliacao.textContent = `${dataFormatada}`;
+
+      const esforce = document.querySelector('.esforce');
+      esforce.style.display = "none";
       
       const notaAvaliacao = document.getElementById('nota-avaliacao');
       notaAvaliacao.textContent = `${data.nota}`;
 
-  } 
+      const historicoTexto = document.querySelector('.evaluation-message'); // Corrigido
+      if(historicoTexto) {
+        console.log("Pegou")
+      }
+      historicoTexto.textContent = ''; // Limpa o conteúdo anterior
+      data.respostasQuestionario.forEach(item => {
+  const resposta = item.resposta ? 'Verdadeiro' : 'Falso';
+  const respostaElemento = document.createElement('p'); // Cria um novo elemento p
+  respostaElemento.textContent = `Sua resposta: ${resposta} `; // Define o texto do elemento
+  historicoTexto.appendChild(respostaElemento); // Adiciona o elemento à div
+});
+      // Faça o que precisar com respostasQuestionario
+    }
+  });
 }
   
       
@@ -179,8 +188,30 @@
           <div class="info-box">
             <div class="evaluation-history">
               <h2>Seu histórico de avaliações:</h2>
-              <p id="evaluation-message">Você ainda não alcançou a nota mínima para a liberação da certificação!</p>
-              <p>Se esforce para alcançar uma nota &gt;70%</p>
+              <p class="questoestexto">
+                Questão 1<br>
+Questão 2<br>
+Questão 3<br>
+Questão 4<br>
+Questão 5<br>
+Questão 6<br>
+Questão 7<br>
+Questão 8<br>
+Questão 9<br>
+Questão 10<br>
+Questão 11<br>
+Questão 12<br>
+Questão 13<br>
+Questão 14<br>
+Questão 15<br>
+Questão 16<br>
+Questão 17<br>
+Questão 18<br>
+Questão 19<br>
+Questão 20<br>
+              </p>
+              <p class="evaluation-message">Você ainda não alcançou a nota mínima para a liberação da certificação!</p>
+              <p class="esforce">Se esforce para alcançar uma nota &gt;70%</p>
             </div>
           </div>
         </div>

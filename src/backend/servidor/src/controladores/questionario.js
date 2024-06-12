@@ -128,7 +128,7 @@ async function verificarAprovacao(idusuario) {
   }
 
   let resposta = await pool.query(
-    `SELECT nota::float, datahorario
+    `SELECT idquestionario, nota::float, datahorario
      FROM tbquestionario
      WHERE idusuario = $1 AND nota >= 70
      ORDER BY datahorario DESC
@@ -137,16 +137,35 @@ async function verificarAprovacao(idusuario) {
   );
 
   if (resposta.rowCount > 0) {
+
+    const idQuestionario = resposta.rows[0].idquestionario;
+
+      // Agora, obtenha as respostas associadas a esse questionário
+      console.log('ID do Questionário:', idQuestionario);
+      const respostasQuestoes = await pool.query(
+        `SELECT idquestao, resposta
+         FROM tbquestao_por_questionario
+         WHERE idquestionario = $1`,
+        [idQuestionario]
+      );
+
+        
+      const respostasApenas = respostasQuestoes.rows.map(item => ({
+        resposta: item.resposta
+    }));
+
     return {
-      aprovado: true,
-      nota: resposta.rows[0].nota,
-      datahorario: resposta.rows[0].datahorario
+        aprovado: true,
+        nota: resposta.rows[0].nota,
+        datahorario: resposta.rows[0].datahorario,
+        respostasQuestionario: respostasApenas
     };
   } else {
     return {
       aprovado: false,
       nota: null,
-      datahorario: null
+      datahorario: null,
+      respostasQuestionario: null
     };
   }
 }
