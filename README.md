@@ -144,7 +144,7 @@ Nosso site para cursos oferece uma experiência de aprendizado rica e interativa
 
 - Burndown Segunda Sprint:
 <p align="center">
-  <img src="documentation/Gr+ífico de Burndown.png" alt="Cadastro Innovatech" width="700">
+  <img src="documentation/Burndown_Sprint2.png" alt="Cadastro Innovatech" width="700">
 </p>
 
 - Burndown Terceira Sprint:
