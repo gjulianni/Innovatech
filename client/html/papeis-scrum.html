@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Papéis no Scrum</title>
+  <link rel="stylesheet" href="aula1.css">
+  <link rel="icon" href="../images/cadastro-img-innova.png">
+ 
+ 
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+
+<style>
+
+        body {
+
+            background: #fff;
+
+            
+        }
+
+        #greeting {
+
+          display: none;
+        }
+</style>
+
+<body>
+
+        <div class="main-cursos">
+          
+        <div class="top-bar">
+            <img class="innova-logo" src="../images/cadastro-img-innova.png" style="width: 75px; height: 80px;">
+            <h1>Innovatech</h1>
+            <a href="./scrum-framework.html"><h2 id="prev">&#8592;</h2></a><a href="./praticasscrum.html"><h2 id="prox"> &#8594; </h2></a> 
+            <h2 id="greeting"></h2>
+                   
+                 <script src="greetings.js"></script>   
+        </div>
+        <span class="btn-sidebar" style="font-size:50px;cursor:pointer" onclick="openNav()">&#9776; </span> <p></p>
+        <div id="sidebar" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="sidebar-links">
+              <a href="../frontend/inicio.html">Home</a>
+              <a href="../frontend/cursos.html">Curso</a>
+              <a href="../frontend/avaliacao.html">Avaliação</a>
+              <a href="../frontend/certificado.html">Certificação</a>
+              <a href="../frontend/login.html" onclick="logout()">Sair</a>
+        </div>
+        <script src="../greetings.js"></script>
+          </div>
+          
+
+          <script>
+            function openNav() {
+              document.getElementById("sidebar").style.width = "250px";
+            }
+            
+            function closeNav() {
+              document.getElementById("sidebar").style.width = "0";
+            }
+            </script>
+        <div class="conteudo">
+          <button id="toggleButton" class="toggle-button">Material Complementar</button>
+          <div id="menu" class="menu">
+              <button id="closeButton" class="close-button">×</button>
+              <ul>
+            <li><a href="https://www.youtube.com/watch?v=I1Fvwfl0ON0" target="_blank"><img class="img-material" src="http://img.youtube.com/vi/I1Fvwfl0ON0/hqdefault.jpg"></a></li>
+            <li><a href="https://www.youtube.com/watch?v=7lhnYbmovb4" target="_blank"><img src="http://img.youtube.com/vi/7lhnYbmovb4/hqdefault.jpg" ></a></li></a></li>
+            <li><a href="https://www.youtube.com/watch?v=lDMjXFKsKbA" target="_blank"><img src="http://img.youtube.com/vi/lDMjXFKsKbA/hqdefault.jpg" ></a></li></a></li>
+            <li><a href="https://www.youtube.com/watch?v=QcEQL_-mRbA" target="_blank"><img src="http://img.youtube.com/vi/QcEQL_-mRbA/hqdefault.jpg" ></a></li></a></li>
+        </ul>
+        <script src="script.js"></script>
+    </div>
+
+    <h1>1.0 - Papéis dentro do Scrum</h1>
+    <br>
+    <p  id="texto-conteudo">No mundo ágil do desenvolvimento de software, o Scrum se destaca como uma metodologia amplamente adotada. Central para sua eficácia estão os papéis claramente definidos que moldam a dinâmica da equipe. O Product Owner, o Scrum Master e a equipe de Desenvolvimento desempenham papéis cruciais, cada um contribuindo de maneira distinta para o sucesso do projeto. Esta introdução aborda a importância desses papéis dentro do contexto do Scrum, destacando sua função essencial na entrega iterativa e incremental de valor ao cliente.</p>
+    <p style="font-weight: 500; font-size: 2.0rem;">1.1 - Product Owner</p>
+    <p  id="texto-conteudo">Dentro da metodologia Scrum, o Product Owner desempenha um papel fundamental na criação de valor para o cliente e na orientação do desenvolvimento do produto. Combinando visão estratégica, conhecimento do mercado e compreensão das necessidades dos stakeholders, o Product Owner atua como o guardião do produto, moldando sua direção e maximizando seu valor.</p>
+    <br>
+    <p id="texto-conteudo">Em essência, o Product Owner é responsável por representar os interesses dos stakeholders, incluindo clientes, usuários e a própria organização, garantindo que as necessidades de todos sejam adequadamente consideradas no desenvolvimento do produto. Para cumprir essa responsabilidade, o Product Owner precisa estar profundamente imerso no contexto do negócio, entendendo as demandas do mercado, as tendências da indústria e as expectativas dos clientes. 
+    Um dos principais artefatos que o Product Owner gerencia é o Backlog do Produto. Este é um repositório dinâmico de todas as funcionalidades, melhorias e correções que precisam ser feitas no produto. O Product Owner é encarregado de priorizar e refinar continuamente os itens do Backlog, garantindo que as atividades mais valiosas e estratégicas sejam realizadas primeiro.
+    </p>
+    <img src="../papeis-scrum-images/product-owner.png" style="max-width: 600px; align-self: center;">
+    <br>
+    <p id="texto-conteudo">Além de gerenciar o Backlog do Produto, o Product Owner é responsável por garantir que a equipe de Desenvolvimento tenha uma compreensão clara dos requisitos do produto. Isso envolve a elaboração de User Stories detalhadas e a colaboração próxima com os membros da equipe para esclarecer dúvidas e garantir que o produto final atenda às expectativas.</p>
+    <br>
+    <p id="texto-conteudo">Em resumo, o Product Owner desempenha um papel multifacetado no Scrum, combinando habilidades de liderança, visão estratégica e conhecimento do mercado para guiar efetivamente o desenvolvimento do produto. Sua capacidade de priorizar, comunicar e tomar decisões estratégicas é fundamental para o sucesso do projeto e para a entrega de valor contínuo ao cliente.</p>
+    <p style="font-weight: 500; font-size: 2.0rem;">1.2 - Scrum Master</p>
+    <p id="texto-conteudo">O Scrum Master desempenha um papel vital como facilitador e defensor dos princípios e práticas desta metodologia. Ao contrário de um gerente tradicional, o Scrum Master não exerce autoridade sobre a equipe, mas sim atua como um líder servo, capacitando e orientando os membros da equipe para alcançar altos níveis de desempenho e eficácia.
+        Uma das principais responsabilidades do Scrum Master é remover obstáculos que possam impedir o progresso da equipe. Isso pode incluir questões técnicas, conflitos interpessoais, ou qualquer outra coisa que possa prejudicar a produtividade. Ao eliminar essas barreiras, o Scrum Master permite que a equipe se concentre no trabalho e alcance seus objetivos de forma eficiente.   
+    </p>
+    <br>
+    <p id="texto-conteudo">Além de remover obstáculos, o Scrum Master também atua como um facilitador, ajudando a equipe a entender e adotar os princípios e práticas do Scrum. Isso inclui facilitar reuniões, como as reuniões diárias (Daily Scrum), reuniões de planejamento de sprint e revisões de sprint, garantindo que sigam a estrutura e os objetivos do Scrum.
+
+     Um aspecto essencial do papel do Scrum Master é proteger a equipe de interferências externas. Isso significa defender a equipe de demandas excessivas de trabalho, pressões de prazos irrealistas ou qualquer outra coisa que possa comprometer sua capacidade de entregar com qualidade. O Scrum Master age como um escudo, permitindo que a equipe se concentre no trabalho sem distrações externas.</p>
+        <img src="../papeis-scrum-images/scrum-master.png" style="max-width: 600px; align-self: center;">
+        <br>
+    <p id="texto-conteudo">Além disso, o Scrum Master promove um ambiente que favoreça a auto-organização e a melhoria contínua. Isso envolve incentivar a colaboração, a comunicação transparente e a responsabilidade compartilhada dentro da equipe. O Scrum Master também ajuda a equipe a identificar oportunidades de melhoria e a implementar práticas ágeis mais eficazes ao longo do tempo.</p>
+    <p style="font-weight: 500; font-size: 2.0rem;">1.3 - Time de Desenvolvimento (Dev Team)</p>
+    <p id="texto-conteudo">Dentro do framework ágil do Scrum, o Time de Desenvolvimento é a espinha dorsal do processo, responsável por transformar os requisitos do cliente em incrementos de funcionalidade do produto. Este grupo multifuncional de profissionais é caracterizado pela sua capacidade de auto-organização, colaboração e foco na entrega contínua de valor.
+    Uma das características fundamentais do Time de Desenvolvimento é sua autonomia. Ao contrário de abordagens tradicionais de gestão de projetos, onde as tarefas são atribuídas de cima para baixo, o Scrum promove a auto-organização da equipe. Isso significa que o Time de Desenvolvimento tem a liberdade e a responsabilidade de determinar como realizar o trabalho de forma mais eficaz.</p>
+    <img src="https://i0.wp.com/www.mindmaster.com.br/wp-content/uploads/2014/08/Caracteristicas-Time-Scrum-e1435088192881.jpg?resize=580%2C420" style="max-width: 600px; align-self: center;">
+    <br>
+    <p id="texto-conteudo">A autonomia do Time de Desenvolvimento é facilitada pelo conceito de multidisciplinaridade. Em vez de serem especialistas em uma única área, os membros da equipe são encorajados a desenvolver habilidades em diversas áreas relacionadas ao projeto. Isso permite uma colaboração mais estreita e eficaz dentro da equipe, minimizando a dependência de recursos externos e acelerando o processo de desenvolvimento.
+    Além da autonomia, a colaboração é outra pedra angular do Time de Desenvolvimento. Os membros da equipe trabalham juntos de forma estreita e contínua ao longo do ciclo de vida do projeto, compartilhando conhecimento, resolvendo problemas e celebrando sucessos. Isso cria um ambiente de trabalho positivo e produtivo, onde as ideias são valorizadas e o trabalho em equipe é incentivado.</p>
+    <p id="texto-conteudo">Outro aspecto importante do Time de Desenvolvimento é sua mentalidade de entrega contínua de valor. Em vez de se concentrarem em tarefas individuais ou em detalhes técnicos, os membros da equipe estão focados em entregar incrementos de funcionalidade do produto que agreguem valor ao cliente. Isso requer uma compreensão clara dos requisitos do produto e uma abordagem iterativa e incremental para o desenvolvimento.</p>
+    <p id="texto-conteudo">Em suma, o Time de Desenvolvimento desempenha um papel vital no sucesso do Scrum, trazendo habilidades variadas, autonomia e colaboração para o processo de desenvolvimento. Sua capacidade de auto-organização, multidisciplinaridade e foco na entrega de valor contínuo são fundamentais para o alcance dos objetivos do projeto e a satisfação do cliente.</p>
+
+
+</div>
+</div>
+</body>
