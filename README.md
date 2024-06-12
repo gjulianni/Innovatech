@@ -15,7 +15,7 @@ Somos a Innovatech Labs, um grupo de desenvolvimento de software focado em criar
 Nosso site para cursos oferece uma experiência de aprendizado rica e interativa. A plataforma foi projetada para ser intuitiva e acessível, permitindo que instrutores criem e gerenciem cursos, enquanto os alunos podem acessar conteúdos de qualidade em qualquer lugar e a qualquer momento.
 
 ### Time
-- **Scrum Master:** Luana Prado
+- **Scrum Master:** Luana Pinheiro
 - **Product Owner:** Pedro Oliveira
 - **Desenvolvedor:** Gabriel Juliani
 - **Desenvolvedor:** Igor Paulino
