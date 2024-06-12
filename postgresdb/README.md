@@ -1,1 +1,217 @@
-Pasta para serem commitados arquivos referentes ao processo de modelagem e configuração do banco de dados Postgres.
+# INNOVATECH LABS
+
+<p align="center">
+  <img src="../src/images/banner-innova.png" alt="Cadastro Innovatech" width="250">
+</p>
+<br>
+<br>
+
+## **Instalação de ferramentas necessárias para a funcionalidade do banco de dados**
+
+| Ferramenta        | Download                         |
+|---------------------|---------------------------------|
+| pgAdmin    | **⬇️ [Link](https://www.pgadmin.org/download/)**         |
+| Visual Studio Code    | **⬇️ [Link](https://code.visualstudio.com/download)**        |
+| Node.js  | **⬇️ [Link](https://nodejs.org/en/download/package-manager)**         |
+
+## **Criação de tabelas no pgAdmin**
+<br>
+
+**Ao abrir o pgAdmin, insira sua senha e, em seguida, crie uma Database com nome de bdapi. Vá até Schemas, public, e clique 
+com o direito em Tables > Query Tool. Insira as seguintes cláusulas:**
+```
+CREATE TABLE tbusuario (
+  idusuario SERIAL NOT NULL,
+  nome VARCHAR(40) NOT NULL,
+  mail VARCHAR(40) NOT NULL,
+  PRIMARY KEY(idusuario)
+);
+
+CREATE TABLE tbquestao (
+  idquestao SERIAL NOT NULL,
+  enunciado VARCHAR(1000) NOT NULL,
+  resposta BOOL NULL,
+  PRIMARY KEY(idquestao)
+);
+
+CREATE TABLE tbquestionario (
+  idquestionario SERIAL NOT NULL,
+  idusuario INTEGER  NOT NULL,
+  datahorario TIMESTAMP DEFAULT NOW() NOT NULL,
+  nota FLOAT NULL,
+  PRIMARY KEY(idquestionario),
+  FOREIGN KEY(idusuario)
+    REFERENCES tbusuario(idusuario)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
+);
+
+CREATE TABLE tbquestao_por_questionario (
+  idquestao INTEGER  NOT NULL,
+  idquestionario INTEGER NOT NULL,
+  resposta BOOL NOT NULL,
+  PRIMARY KEY(idquestao, idquestionario),
+  FOREIGN KEY(idquestao)
+    REFERENCES tbquestao(idquestao)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION,
+  FOREIGN KEY(idquestionario)
+    REFERENCES tbquestionario(idquestionario)
+      ON DELETE CASCADE
+      ON UPDATE CASCADE
+);
+
+INSERT INTO tbquestao (enunciado, resposta) 
+VALUES
+('O Manifesto agil enfatiza mais a documentação extensiva do que o software funcionando?' ,false),
+('Uma das principais premissas do Manifesto agil é valorizar os processos e ferramentas sobre os indivíduos e interações?',false),
+('Segundo o Manifesto Ágil a negociação de contratos é mais importante do que a colaboração com o cliente?',false),
+('O Manifesto Ágil promove a ideia de seguir um plano rígido em vez de responder a mudanças?',false),
+('Os valores e princípios do Manifesto Ágil foram estabelecidos em 2001 por um grupo de desenvolvedores de software?',true),
+('Hirotaka Takeuchi e Ikujiro Nonaka são os pesquisadores japoneses responsáveis pela introdução do conceito de Scrum na década de 1980?',true),
+('O termo Scrum foi escolhido devido à sua semelhança com o esporte de futebol americano?',false),
+('O Scrum começou a ganhar destaque e popularidade significativa antes do Manifesto Ágil em 2001?',false),
+('O Scrum enfatiza a entrega iterativa e incremental a colaboração próxima com os clientes e a adaptação contínua aos requisitos em mudança?',true),
+('Os papéis definidos no Scrum incluem Product Owner Scrum Master e Gerente de Projeto?',false),
+('Sprint Planning Daily, Scrum Sprint, Review e Sprint Retrospective são eventos regulares no Scrum?' ,true),
+('Os artefatos transparentes do Scrum incluem Product Backlog, Sprint Backlog e Incremento do Produto?',true),
+('O Scrum foi adaptado apenas para o desenvolvimento de software e não é aplicável a outros contextos organizacionais?',false),
+('O Manifesto Ágil teve um efeito significativo na promoção e expansão do Scrum?', true),
+('O Scrum não desempenha um papel crucial na ajuda das organizações a se tornarem mais ágeis adaptáveis e orientadas para o cliente?',false),
+('Os valores do Manifesto Ágil priorizam as pessoas e suas interações sobre ferramentas e processos?',true),
+('O valor "Software em funcionamento mais que documentação abrangente" enfatiza a entrega contínua de software funcional, colocando-a acima da documentação extensiva?',true),
+('O valor "Colaboração com cliente mais que negociação de contratos" sugere que é mais importante estabelecer uma colaboração próxima e contínua com os clientes do que focar exclusivamente em negociações contratuais?',true),
+('Resposta a mudanças mais que seguimento de um plano" valoriza a flexibilidade e a capacidade de adaptação contínua às mudanças nos requisitos e no ambiente, em detrimento da rigidez do planejamento?',true),
+('Os valores do Manifesto Ágil são aplicáveis apenas ao desenvolvimento de software e não se estendem a outros setores ou segmentos de mercado?',false),
+('Os valores do Manifesto Ágil foram criados durante a década de 1990?',false),
+('A priorização das pessoas sobre processos e ferramentas reflete a importância da colaboração e do trabalho em equipe no Manifesto Ágil?',true),
+('O valor "Software em funcionamento mais que documentação abrangente" implica que a documentação é mais importante do que a entrega de software funcional?',false),
+('O valor "Colaboração com cliente mais que negociação de contratos" sugere que a negociação de contratos é mais importante do que a colaboração com o cliente?',false),
+('O Manifesto Ágil e seus valores promovem uma abordagem mais flexível, adaptativa e centrada no cliente, adequada para lidar com a complexidade e incerteza dos negócios modernos?',true),
+('Os valores do Scrum incluem Coragem, Foco, Comprometimento, Respeito e Abertura?',true),
+('No Scrum, Respeito implica valorizar as habilidades e contribuições de cada membro da equipe, reconhecendo sua importância para o sucesso coletivo?',true),
+('Os valores do Scrum são opcionais e podem ser ignorados se a equipe assim o desejar?',false),
+('Comprometimento no Scrum implica que os membros da equipe devem fazer promessas inflexíveis sobre o que será entregue em cada Sprint?',false),
+('Abertura no Scrum significa que os membros da equipe devem compartilhar todas as informações, mesmo aquelas que possam prejudicar o progresso do projeto?',false),
+('Coragem no Scrum envolve enfrentar desafios e resistência, mesmo que isso signifique tomar decisões difíceis?',true),
+('No Scrum,o foco significa evitar desvios e distrações que possam impedir a equipe de alcançar seus objetivos definidos?',true),
+('Respeito mútuo entre os membros da equipe no Scrum é essencial para construir confiança e colaboração eficaz?',true),
+('Comprometimento no Scrum significa que cada membro da equipe deve fazer o máximo para contribuir para o sucesso do projeto, mesmo que isso exija flexibilidade e adaptação?',true),
+('Abertura no Scrum incentiva uma cultura de transparência e comunicação honesta, onde os membros da equipe se sentem à vontade para compartilhar ideias, preocupações e feedback livremente?',true),
+('Durante o Poker Planning, os membros da equipe revelam suas estimativas de esforço para as histórias do usuário de forma simultânea?',true),
+('O Poker Planning é uma técnica utilizada no Scrum para estimar o esforço necessário para completar as histórias do usuário?',true),
+('No Poker Planning, cada membro da equipe utiliza cartas com valores representando unidades de medida de esforço, como pontos de história ou horas ideais?',true),
+('No Poker Planning, o consenso sobre a estimativa de esforço é alcançado através de discussões e negociações entre os membros da equipe?',true),
+('Durante o Poker Planning, a equipe pode discutir e esclarecer os detalhes das histórias do usuário para garantir uma estimativa precisa?',true),
+('Durante o Poker Planning, os membros da equipe devem manter suas estimativas em segredo, sem revelá-las aos outros membros?',false),
+('No Poker Planning, os valores das cartas utilizadas para estimar o esforço são escolhidos de acordo com a preferência pessoal de cada membro da equipe?',false),
+('O Scrum é um framework complexo para lidar com projetos simples?',false),
+('Um dos pilares do Scrum é a opacidade, que implica manter os detalhes do projeto ocultos da equipe?',false),
+('No Scrum, a Sprint Review Meeting é um evento onde a equipe verifica se o que foi feito está de acordo com os requisitos do produto?',true),
+('A Sprint Retrospective é um evento do Scrum onde a equipe planeja o próximo sprint?',true),
+('O Product Owner é responsável por definir as prioridades do Product Backlog?',true),
+('O Incremento é um artefato do Scrum que representa o resultado do trabalho de cada Sprint?',true),
+('O Scrum se baseia em ciclos chamados de "sprints" que geralmente têm uma duração de seis meses?',false),
+('O Daily Scrum é um evento diário onde os membros da equipe respondem a cinco perguntas básicas sobre o progresso do trabalho?',false),
+('O Release Burndown é um gráfico que acompanha o progresso do time em relação ao que foi planejado em cada Sprint?',true),
+('Um dos pilares do Scrum é a rigidez, que enfatiza seguir um plano definido rigidamente?',false);
+```
+
+## **Conexão com JavaScript**
+<br>
+
+**Entre no diretório ```src/backend/servidor```, abra o Terminal com ```Ctrl+Shift+'``` ou clicando em ```Terminal > New Terminal```**
+
+<br>
+
+Em seguida, digite ```npm i``` ou ```npm install``` para instalar as **dependências do projeto.**
+
+**O arquivo bd.js é responsável por conectar o backend do projeto com o banco de dados criado no SGBD PostgreSQL.**
+
+<br>
+
+```
+const {Pool} = require("pg");
+const dotenv = require("dotenv");
+dotenv.config();
+
+const pool = new Pool({
+  user: process.env.BDUSUARIO,
+  host: process.env.BDHOST,
+  database: process.env.BDNOME,
+  password: process.env.BDSENHA,
+  port: process.env.BDPORTA
+});
+
+module.exports = { pool };
+```
+
+**No diretório src/backend/servidor, altere o arquivo .env conforme necessário:**
+```
+PORTA = 3030 
+BDUSUARIO = postgres
+BDHOST = localhost
+BDNOME = bdapi
+BDSENHA = 123
+BDPORTA = 5432
+```
+
+<br>
+
+**Certifique-se de que ```BDSENHA``` seja igual sua senha usada para acessar as funcionalidades do pgAdmin, que ```BDPORTA``` seja
+igual a porta configurada na hora de dar insert e criar o BD, e de que ```BDNOME``` seja igual ao nome que foi criada o banco para as tabelas.
+<br>
+A PORTA definida como 3030 será a porta global do projeto.**
+
+<br>
+
+**Após configurar tudo conforme o necessário, digite ```npm run dev``` no Terminal para rodar o servidor do projeto localmente.**
+
+<br>
+
+## **Composição das Cláusulas SQL**
+
+<br>
+
+**Cláusulas INSERT
+Objetivo: Inserir novos registros nas tabelas.**
+
+<br>
+
+**Sintaxe:**
+
+```INSERT INTO tbusuario (nome, mail) VALUES ('Nome Exemplo', 'email@exemplo.com');
+INSERT INTO tbquestao (enunciado, resposta) VALUES ('Enunciado da questão', true);
+INSERT INTO tbquestionario (idusuario, nota) VALUES (1, 70);
+INSERT INTO tbquestao_por_questionario (idquestao, idquestionario, resposta) VALUES (1, 1, true);
+```
+
+**Cláusulas UPDATE
+Objetivo: Atualizar registros existentes nas tabelas.**
+
+<br>
+
+**Sintaxe:**
+
+```
+UPDATE tbusuario SET nome = 'Novo Nome', mail = 'novoemail@exemplo.com' WHERE idusuario = 1;
+UPDATE tbquestao SET enunciado = 'Novo enunciado', resposta = false WHERE idquestao = 1;
+UPDATE tbquestionario SET nota = 70 WHERE idquestionario = 1;
+```
+
+**Cláusulas DELETE
+Objetivo: Remover registros existentes das tabelas.**
+
+<br>
+
+**Sintaxe:**
+
+```
+DELETE FROM tbusuario WHERE idusuario = 1;
+DELETE FROM tbquestao WHERE idquestao = 1;
+DELETE FROM tbquestionario WHERE idquestionario = 1;
+```
+
+<br>
+
+### **Essas cláusulas são usadas para gerenciar dados dentro das tabelas do banco bdapi, permitindo a inserção, atualização e exclusão de registros conforme necessário.**
