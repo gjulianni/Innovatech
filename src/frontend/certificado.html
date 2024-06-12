@@ -94,6 +94,9 @@
       const notaAvaliacao = document.getElementById('nota-avaliacao');
       notaAvaliacao.textContent = `${data.nota}`;
 
+      const botaoInsuficiente = document.querySelector('.button-disabled');
+      botaoInsuficiente.style.display = 'none';
+
       const historicoTexto = document.querySelector('.evaluation-message');
       if(historicoTexto) {
         console.log("Pegou")

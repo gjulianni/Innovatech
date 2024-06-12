@@ -141,7 +141,7 @@ async function verificarAprovacao(idusuario) {
     const idQuestionario = resposta.rows[0].idquestionario;
 
       // Agora, obtenha as respostas associadas a esse questionário
-      console.log('ID do Questionário:', idQuestionario);
+      
       const respostasQuestoes = await pool.query(
         `SELECT q.enunciado, qq.resposta
        FROM tbquestao_por_questionario qq
