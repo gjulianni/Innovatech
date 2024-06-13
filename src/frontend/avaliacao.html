@@ -188,7 +188,8 @@
           let respostas = [];
 
           document.addEventListener("DOMContentLoaded", async () => {
-            const resposta = await fetch('http://localhost:3030/questao'); // Acessa o servidor backend
+            //const resposta = await fetch('http://localhost:3030/questao'); // Acessa o servidor backend
+            const resposta = await fetch('https://innovatech-g4ec.onrender.com'); // Acessa o servidor backend
             questoes = await resposta.json();
             respostas = questoes.map(q => ({ idquestao: q.id, resposta: null })); // Inicializa o array de respostas
             exibirQuestao();
@@ -237,7 +238,8 @@
                 salvarResposta();
                 const dadosUsuario = JSON.parse(localStorage.getItem('usuario'));
                 const idusuario = dadosUsuario.idusuario;
-                const resposta = await fetch('http://localhost:3030/questionario', {
+                //const resposta = await fetch('http://localhost:3030/questionario', {
+                const resposta = await fetch('https://innovatech-g4ec.onrender.com', {  
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',
