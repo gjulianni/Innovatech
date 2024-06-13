@@ -1,4 +1,4 @@
-const { pool } = require("./bd");
+const { pool } = require("./bd.js");
 
 
 async function listarQuestionario(req, res) {
