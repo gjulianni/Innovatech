@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Cursos</title>
+  <link rel="stylesheet" href="../css/cursos.css">
+  <link rel="icon" href="../images/cadastro-img-innova.png">
+  <script src="../javascript/geral.js"></script>
+ 
+ 
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+
+<style>
+
+        body {
+
+            background-image: url("../images/cursos-bg.png");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            
+        }
+</style>
+
+<body>
+
+        <div class="main-cursos">
+            
+        <div class="top-bar">
+            <img class="innova-logo" src="../images/cadastro-img-innova.png" style="width: 75px; height: 80px;">
+            <h1>Innovatech</h1>
+            <h2 id="greeting"></h2>
+              
+                 <script src="../javascript/greetings.js"></script>   
+        </div>
+        <span class="btn-sidebar" style="font-size:50px;cursor:pointer" onclick="openNav()">&#9776; </span>
+        <div id="sidebar" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="sidebar-links">
+            <a href="./inicio.html">Home</a>
+            <a href="./cursos.html">Curso</a>
+            <a href="./avaliacao.html">Avaliação</a>
+            <a href="./certificado.html">Certificação</a>
+            <a href="./login.html" onclick="logout()">Sair</a>
+        </div>
+          </div>
+          
+
+          <script>
+            function openNav() {
+              document.getElementById("sidebar").style.width = "250px";
+            }
+            
+            function closeNav() {
+              document.getElementById("sidebar").style.width = "0";
+            }
+            </script>
+            <div class="courses-container">
+              <h1 style="color: azure; font-family: 'Roboto', sans-serif; font-size: 3em; margin-top: 0; margin-bottom: 0; font-weight: 200; position: absolute; top: 0; transform: translateX(50%);">Meus Cursos</h1>
+                <div class="card">
+                  
+                    <img id="card-img" src="../images/images-cursos/curso1.png" style="width: 358px; height: 235px; border: 5px solid #0BA3F9; border-radius: 15px;" href="./aula1.html">
+                    <a href="./aula1.html">
+                    <h1>O que é Scrum?</h1>
+                    <p style="font-size: 20px; margin-bottom: 0;">Amplie seu conhecimento sobre a metodologia Scrum, utilizada
+                     por diversas empresas e equipes para aumentar a eficiência do desenvolvimento de projetos.</p>
+                    </a>
+                </div>
+                <div class="card">
+                  <img id="card2-img" src="../images/images-cursos/curso2.jpg" style="width: 358px; height: 235px; border: 5px solid #0BA3F9; border-radius: 15px;">
+                  <a href="./scrum-framework.html">
+                    <h1>Scrum Framework</h1>
+                    <p style="font-size: 20px; margin-bottom: 0;">Aprenda o conjunto de processos de desenvolvimento, planejamento e organização do Scrum, 
+                    e como o planejamento pode ser benéfico à equipe.</p>
+                  </a>
+                </div>
+                <div class="card">
+                  
+                  <img id="card3-img" src="../images/images-cursos/curso3.png" style="width: 358px; height: 235px; border: 5px solid #0BA3F9; border-radius: 15px;">
+                  <a href="./papeis-scrum.html">
+                  <h1>Papéis dentro do Scrum</h1>
+                  <p style="font-size: 20px; margin-bottom: 0;">Aprenda sobre os três papéis fundamentais da metodologia Scrum.</p>
+                </a>
+                </div>
+                <div class="card">
+                  <img id="card4-img" src="../images/images-cursos/curso4.png" style="width: 358px; height: 235px; border: 5px solid #0BA3F9; border-radius: 15px;">
+                  <a href="./praticasscrum.html">
+                  <h1>Scrum na prática</h1>
+                  <p style="font-size: 18px; margin-bottom: 0;">A metodologia Scrum pode se adaptar às mais diversas realidades e cenários, desde equipes mais enxutas até grupos mais segmentados. 
+                  Para que isso aconteça, é importante a compreensão de alguns passos e responsabilidades que devem ser priorizadas.</p>
+                  </a>
+                </div>
+                <div class="card">
+                  <img id="card5-img" src="../images/images-cursos/curso5.png" style="width: 358px; height: 235px; border: 5px solid #0BA3F9; border-radius: 15px;">
+                  <a href="./elementos-centrais.html">
+                  <h1>Elementos centrais do Scrum</h1>
+                  <p style="font-size: 20px; margin-bottom: 0;">Conheça os pilares da metodologia Scrum, e como sua adaptação pode gerenciar projetos
+                  de forma iterativa e incremental.</p>
+                </a>
+                </div>
+                <div class="card">
+                  <img id="card6-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa1e7tf_Z5DnaGKYza2obMOTSMdy5kz3S_ce3Stpjo-g&s" style="width: 358px; height: 235px; border: 5px solid #0BA3F9; border-radius: 15px;">
+                  <a href="./poker.html">
+                  <h1>Poker Planning</h1>
+                  <p style="font-size: 20px; margin-bottom: 0;">Domine a técnica ágil de Poker Planning para estimativas precisas e colaborativas. Neste curso imersivo, você aprenderá a técnica de Poker Planning, uma
+                  prática popular no desenvolvimento ágil de software para estimar o esforço necessário para concluir tarefas. </p>
+                </a>
+                </div>
+            </div>
+
+
+            </div>
+            <div class="footer">
+              <p>&copy;2024 Innovatech Labs. Todos os direitos reservados.</p>
+            </div>
+        </body>
+</html>

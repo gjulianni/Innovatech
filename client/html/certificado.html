@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Innovatech</title>
+  <link rel="stylesheet" href="../css/inicio.css">
+  <link rel="stylesheet" href="../css/certificado.css">
+  <link rel="icon" href="../images/cadastro-img-innova.png">
+  <script src="../javascript/geral.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+  <script src="../../server/src/controladores/questionario.js"></script>
+  <script src="../../server/src/controladores/questao.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+  <div class="main-inicio">
+    <div class="top-bar">
+      <img class="innova-logo" src="../images/cadastro-img-innova.png" alt="Logo Innovatech">
+      <h1>Innovatech</h1>
+      <script src="../javascript/greetings.js"></script>
+      <script src="../javascript/index.js"></script>
+    </div>
+    <span class="btn-sidebar" style="font-size:50px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    <div id="sidebar" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="sidebar-links">
+        <a href="./inicio.html">Home</a>
+        <a href="./cursos.html">Curso</a>
+        <a href="./avaliacao.html">Avaliação</a>
+        <a href="#">Certificação</a>
+        <a href="./login.html" onclick="logout()">Sair</a>
+      </div>
+    </div>
+    <script>
+      function openNav() {
+        document.getElementById("sidebar").style.width = "250px";
+      }
+      function closeNav() {
+        document.getElementById("sidebar").style.width = "0";
+      }
+    </script>
+
+<style>
+  @media print {
+           @page {
+               size: landscape;
+           }
+       }
+</style>
+
+<script>
+  async function verificarAprovacao(idusuario) {
+  const response = await fetch('http://localhost:3030/verificar-aprovacao', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ idusuario })
+  });
+
+  response.json().then(data => {
+    console.log('Dados da resposta:', data);
+
+    if (data.aprovado) {
+      const btnObterCertificado = document.querySelector('.certificate-preview .button-enabled');
+      btnObterCertificado.style.display = "flex";
+      const btnNotaInsuficiente = document.querySelector('.certificate-preview .button-disabled');
+      btnNotaInsuficiente.style.display = "none";
+
+      const notaInsuficiente = document.querySelector('.not-enough-score');
+      notaInsuficiente.style.display = "none";
+      const imgCertificado = document.querySelector('.preview img');
+      imgCertificado.style.filter = "none";
+
+      const lastScore = document.getElementById('last-score');
+      lastScore.textContent = `${data.nota}`;
+
+      const notaCertificado = document.getElementById('nome-usuario');
+      const nomeUsuarioJSON = localStorage.getItem('usuario');
+      const nomeUsuario = JSON.parse(nomeUsuarioJSON);
+      const nome = nomeUsuario.nome;
+
+      notaCertificado.textContent = `${nome}`;
+      
+      const dataAvaliacao = document.getElementById('data-avaliacao');
+      const dataFormatada = new Date(data.datahorario).toLocaleString('pt-BR', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'    
+      });
+      dataAvaliacao.textContent = `${dataFormatada}`;
+
+      const esforce = document.querySelector('.esforce');
+      esforce.style.display = "none";
+      
+      const notaAvaliacao = document.getElementById('nota-avaliacao');
+      notaAvaliacao.textContent = `${data.nota}`;
+
+      const botaoInsuficiente = document.querySelector('.button-disabled');
+      botaoInsuficiente.style.display = 'none';
+
+      const historicoTexto = document.querySelector('.evaluation-message');
+      if(historicoTexto) {
+        console.log("Pegou")
+      }
+      historicoTexto.innerHTML = ''; // Limpa o conteúdo anterior
+
+      data.respostasQuestionario.forEach((item, index) => {
+    const resposta = item.resposta ? 'Verdadeiro' : 'Falso';
+    const questaoNumero = `Questão ${index + 1}`;
+    const respostaElemento = document.createElement('p'); // Cria um novo elemento p
+
+    // Define o HTML do elemento com quebra de linha e classes CSS
+    respostaElemento.innerHTML = `<strong>${questaoNumero} - ${item.enunciado}</strong><br>Sua resposta: ${resposta}<br>`;
+    
+    historicoTexto.appendChild(respostaElemento); // Adiciona o elemento à div
+  });
+
+      // Faça o que precisar com respostasQuestionario
+    }
+  });
+}
+  
+      
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    const usuarioLogadoJSON = localStorage.getItem('usuario');
+    const usuarioLogado = JSON.parse(usuarioLogadoJSON);
+    const idusuario = usuarioLogado.idusuario;
+    if (idusuario !== null) {
+      verificarAprovacao(idusuario);
+    }
+    else {
+      console.log("jdfgbgffdigkdf")
+    }
+  });
+
+  function printCertificate() {
+  // Hide download button while printing
+  const downloadButton = document.querySelector('.download-certificado');
+  downloadButton.style.display = 'none';
+  const fecharButton = document.querySelector('.fechar-container');
+  fecharButton.style.display = "none";
+
+  // Print the certificate
+  window.print();
+
+  // Show download button again after printing
+  downloadButton.style.display = 'block';
+  fecharButton.style.display = 'block';
+}
+</script>
+
+
+    <script>
+      function fecharCertificado() {
+
+        const certificadoContainer = document.querySelector('.certificado-container');
+        certificadoContainer.style.display = "none";
+      }
+    </script>
+
+    <script>
+      function abrirCertificado() {
+
+        const containerAberto = document.querySelector('.certificado-container');
+        containerAberto.style.display = "flex";
+      }
+    </script>
+
+    <div class="certificado-container">
+      <button class="fechar-container" onclick="fecharCertificado()">X</button>
+      <div class="certificado-box">
+        <img id="img-certificado" src="../images/cert-alternative.png">
+        <img id="assinatura" src="../images/assinatura.png">
+        <div class="textos-certificado">
+        <h1>Certificado</h1>
+        <h2>Certificamos que</h2>
+        <span id="nome-usuario"></span>
+        <p id="estoria">Concluiu o curso Scrum, ministrado pela empresa Innovatech, realizado no dia <span id="data-avaliacao"></span>. O participante obteve um score de <span id="nota-avaliacao"></span> na avaliação do curso.</p>
+        <div class="botoes-certificado">
+          <button class="download-certificado" onclick="printCertificate()">Download</button>
+        </div>
+      </div>
+      </div>
+    </div>
+
+
+  
+    <div class="text-obter">
+    <h1>Obtenha seu Certificado!</h1>
+  </div>
+    <section class="certification">
+      <div class="evaluation-info">
+        <div class="evaluation-details">
+          <div class="info-box">
+            <p>Nota da sua última avaliação: <span id="last-score">N/A</span></p>
+          </div>
+          <div class="info-box" id="box2">
+            <h2>Seu histórico de avaliações:</h2>
+            <div class="evaluation-history">
+              
+              <p class="questoestexto">
+                Questão 1<br>
+Questão 2<br>
+Questão 3<br>
+Questão 4<br>
+Questão 5<br>
+Questão 6<br>
+Questão 7<br>
+Questão 8<br>
+Questão 9<br>
+Questão 10<br>
+Questão 11<br>
+Questão 12<br>
+Questão 13<br>
+Questão 14<br>
+Questão 15<br>
+Questão 16<br>
+Questão 17<br>
+Questão 18<br>
+Questão 19<br>
+Questão 20<br>
+              </p>
+              <p class="evaluation-message">Você ainda não alcançou a nota mínima para a liberação da certificação!</p>
+              <p class="esforce">Se esforce para alcançar uma nota &gt;70%</p>
+            </div>
+          </div>
+        </div>
+        <div class="certificate-preview">
+          <div class="preview">
+            <img src="../images/certificado.png" alt="Preview do Certificado">
+            <div class="not-enough-score">
+            <h5>Sua nota ainda não é suficiente para desbloquear o certificado!</h5>
+          </div>
+          <button class="button-disabled">Nota insuficiente</button>
+          <button class="button-enabled" onclick="abrirCertificado()">Obter certificado</button>
+        </div>
+          
+        </div>      
+      </div>
+    </section>
+  </div>
+</body>
+</html>
