@@ -115,7 +115,8 @@
 
             <script>
               async function verificarAprovacao(idusuario) {
-                const response = await fetch('http://localhost:3030/verificar-aprovacao', {
+                //const response = await fetch('http://localhost:3030/verificar-aprovacao', {
+                const reponse = await fetch('https://innovatech-g4ec.onrender.com', { // Acessa o servidor backend
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json'
