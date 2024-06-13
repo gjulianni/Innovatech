@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poker Planning</title>
+  <link rel="stylesheet" href="aula1.css">
+  <link rel="icon" href="../images/cadastro-img-innova.png">
+ 
+ 
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+
+<style>
+
+        body {
+
+            background: #fff;
+
+            
+        }
+
+        #greeting {
+
+          display: none;
+        }
+</style>
+
+<body>
+
+        <div class="main-cursos">
+          
+        <div class="top-bar">
+            <img class="innova-logo" src="../images/cadastro-img-innova.png" style="width: 75px; height: 80px;">
+            <h1>Innovatech</h1>
+            <a href="./elementos-centrais.html"><h2 id="prev">&#8592;</h2></a>
+                    
+                 <script src="greetings.js"></script>   
+        </div>
+        <span class="btn-sidebar" style="font-size:50px;cursor:pointer" onclick="openNav()">&#9776; </span> <p></p>
+        <div id="sidebar" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="sidebar-links">
+            <a href="../frontend/inicio.html">Home</a>
+            <a href="../frontend/cursos.html">Curso</a>
+            <a href="../frontend/avaliacao.html">Avaliação</a>
+            <a href="../frontend/certificado.html">Certificação</a>
+            <a href="../frontend/login.html" onclick="logout()">Sair</a>
+        </div>
+        <script src="../greetings.js"></script>
+          </div>
+          
+
+          <script>
+            function openNav() {
+              document.getElementById("sidebar").style.width = "250px";
+            }
+            
+            function closeNav() {
+              document.getElementById("sidebar").style.width = "0";
+            }
+            </script>
+        <div class="conteudo">
+          <button id="toggleButton" class="toggle-button">Material Complementar</button>
+          <div id="menu" class="menu">
+              <button id="closeButton" class="close-button">×</button>
+              <ul>
+            <li><a href="https://www.youtube.com/watch?v=p387JzsOERY" target="_blank"><img class="img-material" src="http://img.youtube.com/vi/p387JzsOERY/hqdefault.jpg"></a></li>
+            <li><a href="https://www.youtube.com/watch?v=uCaKGz1kDv8" target="_blank"><img src="http://img.youtube.com/vi/uCaKGz1kDv8/hqdefault.jpg" ></a></li></a></li>
+            <li><a href="https://www.youtube.com/watch?v=I1Ocr-_x20U" target="_blank"><img src="http://img.youtube.com/vi/I1Ocr-_x20U/hqdefault.jpg" ></a></li></a></li>
+            <li><a href="https://www.youtube.com/watch?v=dPcUHT_i5dU" target="_blank"><img src="http://img.youtube.com/vi/dPcUHT_i5dU/hqdefault.jpg" ></a></li></a></li>
+        </ul>
+        <script src="script.js"></script>
+    </div>
+
+    <h1>1.0 - O que é Poker Planning?</h1>
+    <p  id="texto-conteudo">O Planning Poker é uma técnica utilizada na reunião de planejamento da Sprint que tem como objetivo realizar a estimativa de esforço sobre as tarefas do backlog do produto. Dessa forma, a ferramenta possibilita pontuar e classicar as tarefas com um sistema de números utilizando o conceito de escala Fibonacci por meio de um baralho. A estimativa é realizada de forma consensual entre os membros do time de desenvolvimento (desde Júnior até Sênior).</p>
+    <p style="font-weight: 500; font-size: 2.0rem;">1.1 - Quando surgiu o Poker Planning?</p>
+    <p id="texto-conteudo">O Planning Poker surgiu em 2002, quando a metodologia Scrum já existia. Este método possibilitou que o time de desenvolvimento atingisse mais facilmente o consenso de esforço de estimativas sobre cada item.</p>
+    <p style="font-weight: 500; font-size: 2.0rem;">1.2 - Papéis dos participantes do Poker Planning</p>
+    <p id="texto-conteudo">Fazem parte do Planning Poker os seguintes papéis Scrum.
+      Dev Team / Desenvolvedores: responsáveis pelo desenvolvimento dos itens do backlog. Esses são os profissionais que realizam -de fato- a estimativa de esforço nos itens apresentados pelo Product Owner na reunião de planejamento (com o Planning Poker);
+      Product Owner / Dono do produto: esse é o principal responsável por ser o canal de comunicação entre os interessados na criação do produto e o time que irá desenvolver o produto. O Product Owner (PO) levanta as necessidades do negócio e cria as histórias de usuário (descrições das funcionalidades listadas no backlog do produto). Além disso, o PO é responsável por conduzir as cerimônias mais importantes do Scrum junto com o Dev Team e o Scrum Master. Dentre essas cerimônias, o PO conduz a Sprint Planning, apresentando os itens priorizados do backlog do produto para que os desenvolvedores possam utilizar o Planning Poker;
+      Scrum Master: estabelece o Scrum conforme definido no Guia do Scrum. Esse profissional ajuda todos a entender a teoria e a prática do Scrum, tanto no Scrum Team quanto na organização. Normalmente, a participação do Scrum Master em estimativas não é obrigatória e, quando participa, fica mais com o papel de ouvinte.</p>
+      <p style="font-weight: 500; font-size: 2.0rem;">1.3 - Como funciona o Poker Planning</p>
+      <p id="texto-conteudo">O Poker Planning utiliza o sistema Fibonacci. Assim, cada participante do Dev Team possui um baralho com os seguintes número e símbolos:</p>
+      <img src="https://agilepink.com/wp-content/uploads/2019/10/poker.png"style="max-width: 600px; align-self: center;">
+      <br>
+      <p id="texto-conteudo">Os números de cada carta do baralho seguem a sequência de Fibonacci, na qual o terceiro número da sequência sempre é a soma dos dois primeiros números. Por exemplo: 1,2,3,5,8,13,21,34 e assim por diante. Cada usuário pode ter seu próprio baralho impresso ou usar apps específicos de Planning Poker. Algumas cartas podem conter símbolos:
+        <br>
+        <br>
+        Café: significa que algum dos participantes gostaria de fazer uma pausa (algumas reuniões de planejamento demoram várias horas);
+        Interrogação (?): para eventuais dúvidas dos participantes;
+        0.5 ou ⅕: remete à uma pontuação de uma história de usuário muito pequena (um pouco acima de 0).
+        A estimativa se inicia com o PO lendo uma história de usuário por rodada para os desenvolvedores que avaliam a complexidade dessas histórias de usuário e aguardam o momento certo para apresentar suas pontuações, dúvidas ou até mesmo solicitar uma pausa.</p>
+        <h1> 2.0 - Na prática</h1>
+        <br>
+        <p id="texto-conteudo">Para entender como funciona na prática, vamos ultilizar um exemplo:</p>
+        <br>
+<img src="https://www.metodoagil.com/wp-content/uploads/2017/05/planning_poker.jpg"style="max-width: 600px; align-self: center;">
+<br>
+<br>
+      <p id="texto-conteudo"> 
+        Temos um Product Owner X e os Desenvolvedores A, B e C;
+        O Product Owner acessa seu backlog do produto contendo suas histórias de usuários ou requisitos já priorizados ou não;
+        O PO interpreta um requisito por rodada e dá um tempo para cada membro do time de desenvolvimento avaliar a complexidade;
+        Após a avaliação dos membros do time desenvolvimento, cada um pega uma carta e aguarda a sinalização do PO para que todos levantem ao mesmo tempo e mostrem suas cartas;
+        Vamos imaginar que o desenvolver A classificou como 5, o dev B como 3 e o dev C como 21;
+        Com a polarização das classificações, o dev B achou a tarefa com uma complexidade pequena e o dev C classificou essa complexidade como grande em comparação aos outros. É neste momento que cada um explica o porquê classificou o requisito com a nota mostrada;
+        São feitas discussões entre cada membro da equipe para que chegue em um consenso de complexidade de cada requisito, baseado nos argumentos de cada um;
+        Uma vez que os requisitos são pontuados dessa forma, fica mais claro o alinhamento entre todos do time de qual é a complexidade mais próxima de esforço que de fato terá cada requisito a ser desenvolvido. </p> 
+        <p style="font-weight: 500; font-size: 2.0rem;">2.1 - Vantagens da ultilização do Poker Planning</p>
+        <p id="texto-conteudo">A estimativa não vai focar em medir o tempo que se leva para desenvolver cada história de usuário. Com o Planning Poker, a estimativa possibilita uma pontuação de complexidade baseada no alinhamento consensual entre os envolvidos.
+          O Planning Poker traz as seguintes vantagens:
+          Estimativas mais precisas e melhor mensuradas;
+          Evita uma grande variação nas estimativas;
+          Melhor interação entre a equipe de desenvolvimento;
+          Maior entendimento do que deve ser realizado em cada requisito;
+          Ajuda a evitar a “Ancoragem”.  As estimativas são analisadas de forma semi-anônima e apenas depois são expostas para todos ao mesmo tempo. Por isso, o Planning Poker ajuda a evitar o processo conhecido como “Ancoragem”, no qual um desenvolvedor que é mais experiente (ou tem mais tempo de empresa) faz a sua estimativa e todos os outros (por insegurança ou até uma percepção de falta de capacidade ou vontade de estimar) classificam com a mesma complexidade ou tempo que o membro mais experiente do time, não sendo necessariamente a estimativa mais correta;
+          Ajuda na organização do backlog da sprint, pois, por meio da classificação da estimativa por pontos, é possível adequar em cada sprint suas respectivas User Stories (com base em um histórico de entrega de pontos do time).</p>
+          <p style="font-weight: 500; font-size: 2.0rem;">2.2 - Previsibilidade e melhores resultados</p>
+          <p id="texto-conteudo">Com as tarefas estimadas, temos uma referência de evolução do time. Por isso, podemos mensurar os resultados das equipes e ter melhor previsibilidade nas próximas atividades. Dessa forma, conseguimos prever o cronograma de forma mais eficiente. Além disso, o Planning Poker oferece uma gestão verdadeira do time em relação ao projeto.
+            É muito importante reforçar que não estamos trabalhando com um conceito fixo. Ou seja, esse fluxo de desenvolvimento é ágil e estamos trabalhando com relatividade e atualização constante. Por isso, é importante entender se esse método é eficiente para a sua operação. Além disso, se a ferramenta fizer sentido para o seu negócio, você pode adequar essa técnica ao seu modelo de trabalho o tornando cada vez melhor.Por fim, a aplicação do Planning Poker pode trazer muito mais assertividade para suas estimativas, oferecendo, ainda, uma visão mais específica para os desenvolvedores compreenderem cada vez melhor o que precisa ser feito e qual será o esforço, complexidade e viabilidade de cada tarefa. Além disso, o método ainda entrega o benefício adicional do time se sentir realmente parte integrante do projeto, e não simplesmente receber tarefas descritas em como devem ser feitas e quando devem ser entregues.</p>
+
+
