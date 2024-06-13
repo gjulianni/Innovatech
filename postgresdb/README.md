@@ -1,7 +1,7 @@
 # INNOVATECH LABS
 
 <p align="center">
-  <img src="../src/images/banner-innova.png" alt="Cadastro Innovatech" width="250">
+  <img src="../client/images/banner-innova.png" alt="Cadastro Innovatech" width="250">
 </p>
 <br>
 <br>
