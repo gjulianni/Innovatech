@@ -38,8 +38,8 @@ Nosso site para cursos oferece uma experiência de aprendizado rica e interativa
 - **Histórico e Certificação:** Registro da avaliação aprovada, porcentagem de aproveitamento e emissão de certificado.
 
 ### Estrutura do Código
-- **Frontend:** Todo o código fonte do frontend está localizado na pasta `/client`.
-- **Backend:** O código fonte do backend está na pasta `/server`.
+- **Frontend:** Todo o código fonte do frontend está localizado na pasta [`/client`](https://github.com/gjulianni/Innovatech/tree/organizado/client).
+- **Backend:** O código fonte do backend está na pasta [`/server`](https://github.com/gjulianni/Innovatech/tree/organizado/server).
 - **Banco de Dados:** A documentação completa do banco de dados, incluindo esquemas, tabelas e consultas SQL, pode ser encontrada na pasta  [`/postgresdb`](https://github.com/gjulianni/Innovatech/tree/main/postgresdb).
 - **Documentação:** A documentação completa da API e guias de instalação estão na pasta [`/documentation`](https://github.com/gjulianni/Innovatech/tree/main/documentation).
 
