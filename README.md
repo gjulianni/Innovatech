@@ -28,7 +28,7 @@ Nosso site para cursos oferece uma experiência de aprendizado rica e interativa
 - **Frontend:** HTML, CSS, JavaScript
 - **Backend:** Node.js, Express
 - **Banco de Dados:** Postgres
-- **Hospedagem:** Render
+- **Hospedagem:** [Render](https://innovatech-1-5ahy.onrender.com/frontend/login.html)
 - **Controle de Versão:** GitHub
 
 ### Funcionalidades
