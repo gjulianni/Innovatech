@@ -116,7 +116,7 @@
             <script>
               async function verificarAprovacao(idusuario) {
                 //const response = await fetch('http://localhost:3030/verificar-aprovacao', {
-                const reponse = await fetch('https://innovatech-g4ec.onrender.com/verificar-aprovacao', { // Acessa o servidor backend
+                const reponse = await fetch('https://innovatech-itbx.onrender.com/verificar-aprovacao', { // Acessa o servidor backend
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json'
@@ -190,7 +190,7 @@
 
           document.addEventListener("DOMContentLoaded", async () => {
             //const resposta = await fetch('http://localhost:3030/questao'); // Acessa o servidor backend
-            const resposta = await fetch('https://innovatech-g4ec.onrender.com/questao'); // Acessa o servidor backend
+            const resposta = await fetch('https://innovatech-itbx.onrender.com/questao'); // Acessa o servidor backend
             questoes = await resposta.json();
             respostas = questoes.map(q => ({ idquestao: q.id, resposta: null })); // Inicializa o array de respostas
             exibirQuestao();
@@ -240,7 +240,7 @@
                 const dadosUsuario = JSON.parse(localStorage.getItem('usuario'));
                 const idusuario = dadosUsuario.idusuario;
                 //const resposta = await fetch('http://localhost:3030/questionario', {
-                const resposta = await fetch('https://innovatech-g4ec.onrender.com/questionario', {  
+                const resposta = await fetch('https://innovatech-itbx.onrender.com/questionario', {  
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',
