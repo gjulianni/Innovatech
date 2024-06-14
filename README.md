@@ -38,8 +38,11 @@ Nosso site para cursos oferece uma experiência de aprendizado rica e interativa
 - **Histórico e Certificação:** Registro da avaliação aprovada, porcentagem de aproveitamento e emissão de certificado.
 
 ### Estrutura do Código
-- **Frontend:** Todo o código fonte do frontend está localizado na pasta `/client`.
-- **Backend:** O código fonte do backend está na pasta `/server`.
+- **Frontend:** Todo o código fonte do frontend está localizado na pasta [`/src`](https://github.com/gjulianni/Innovatech/tree/main/src).
+            - [HTML](https://github.com/gjulianni/Innovatech/tree/main/src/frontend)
+            - [CSS](https://github.com/gjulianni/Innovatech/tree/main/src/css)
+            - [JAVA SCRIPT](https://github.com/gjulianni/Innovatech/tree/main/src/js)
+- **Backend:** O código fonte do backend está na pasta [`/backend`](https://github.com/gjulianni/Innovatech/tree/main/src/backend).
 - **Banco de Dados:** A documentação completa do banco de dados, incluindo esquemas, tabelas e consultas SQL, pode ser encontrada na pasta  [`/postgresdb`](https://github.com/gjulianni/Innovatech/tree/main/postgresdb).
 - **Documentação:** A documentação completa da API e guias de instalação estão na pasta [`/documentation`](https://github.com/gjulianni/Innovatech/tree/main/documentation).
 
@@ -132,7 +135,7 @@ Nosso site para cursos oferece uma experiência de aprendizado rica e interativa
 | Front End - Página de Certificação | **✅ Concluído**        |
 | Back End - Página de Certificação | **✅ Concluído**        |
 | BD - Gerenciamento Questões | **✅ Concluído**        |
-| Hospedagem Máquina Virtual | **🔄 Em Progresso**    |
+| Hospedagem Máquina Virtual | **✅ Concluído**    |
 
 ---
 ## Indicadores:
@@ -149,5 +152,7 @@ Nosso site para cursos oferece uma experiência de aprendizado rica e interativa
 
 - Burndown Terceira Sprint:
 <p align="center">
-  <img src="documentation/Gr+ífico de Burndown.png" alt="Cadastro Innovatech" width="700">
+  <img src="documentation/Gráfico de Burndown Sprint 3.png" alt="Cadastro Innovatech" width="700">
 </p>
+
+## Obrigado por visitar nosso repositório, volte sempre 👋
