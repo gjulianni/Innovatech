@@ -649,16 +649,16 @@ button {
         
 }
 
-        @media only screen and (max-height: 932px) {
+        @media only screen and (max-width: 430px) and (max-height: 932px) {
 
-            .right-content .img-scrum {
+    .right-content .img-scrum {
 
-                position: absolute;
-                top: 150%;
-            }
-        }
+        position: absolute;
+        top: 150%;
+    }
+}
 
-        @media only screen and (max-height: 915px) {
+         @media only screen and (max-width: 412px) and (max-height: 915px) {
 
             .right-content .img-scrum {
 
@@ -667,11 +667,34 @@ button {
             }
         }
 
-        @media only screen and (max-height: 844px) {
+        @media only screen and (max-width: 390px) and (max-height: 844px) {
 
             .right-content .img-scrum {
 
                 position: absolute;
                 top: 175%;
+            }
+        }
+
+@media only screen and (max-width: 375px) and (max-height: 667px) {
+
+            .right-content .img-scrum {
+        
+                position: absolute;
+                top: 220%;
+            }
+
+            #greeting {
+                display: none;
+            }
+
+            body {
+
+                overflow-x: hidden;
+            }
+
+            .left-content {
+
+                margin-right: 5%;
             }
         }
